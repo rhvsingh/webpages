@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-text-color: #fff;
+    --secondary-text-color: #000;
+    --color-1: #ccc;
+    --color-2: #333;
+}
+
+body {
+    background: url('assets/images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
+}
+
+.card-box {
+    position: relative;
+    margin: 20px auto;
+    padding-left: 2em;
+    padding-right: 2em;
+    text-align: center;
+}
+
+.icons {
+    color: var(--primary-text-color);
+    margin: 10px;
+    font-size: 40px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    opacity: 0.3;
+}
+
+.icons.active {
+    position: relative;
+    color: var(--primary-text-color);
+    opacity: 1;
+}
+
+.icons.active::after {
+    position: absolute;
+    content: '';
+    width: 40px;
+    height: 40px;
+    background: var(--color-2);
+    z-index: -10;
+    bottom: -1.4em;
+    left: 0;
+    transform: rotate(45deg);
+    background: var(--primary-text-color);
+}
+
+.cards {
+    display: none;
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+@media screen and (min-width: 768px) {
+    .cards {
+        min-height: 200px;
+    }
+}
+
+.cards.active {
+    visibility: visible;
+    opacity: 1;
+    animation: none;
+    z-index: 100;
+    display: block;
+}
+
+#profile {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#profile::before {
+    position: absolute;
+    font-family: FontAwesome;
+    content: '\f105';
+    font-weight: 900;
+    text-align: center;
+    align-items: center;
+    width: 35px;
+    padding: 12px 5px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--primary-text-color);
+}
+
+#profile_info {
+    max-width: 500px;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #888;
+    font-size: 1rem;
+}
+
+#profile_info h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+#profile_img {
+    width: 250px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#profile img {
+    width: 100%;
+    display: block;
+}
+
+#img-section {
+    padding: 0 2em;
+}
+
+#img-heading {
+    text-align: left;
+    margin-top: 3em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+#img-heading>* {
+    margin-bottom: 14px;
+}
+
+#img-heading h1 {
+    color: #444;
+}
+
+#img-heading p {
+    color: #777;
+    font-size: 15px;
+    line-height: 2;
+}
+
+#img-section img {
+    width: 200px;
+    margin: 10px;
+    border-radius: 3px;
+}
+
+#message {
+    max-width: 700px;
+    min-width: 600px;
+    text-align: left;
+}
+
+#message-heading {
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 20px;
+    color: #555;
+}
+
+#message form {
+    padding: 20px;
+}
+
+#message input,
+#message textarea {
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    outline: none;
+    border-radius: 3px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    text-align: left;
+    background-color: #eee;
+}
+
+#message textarea {
+    min-height: 160px;
+}
+
+::placeholder {
+    color: #aaa;
+}
+
+#form_input {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1em;
+}
+
+input[type='submit'] {
+    background-color: #222 !important;
+    width: auto !important;
+    color: #ddd;
+    border-radius: 0 !important;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+#social {
+    min-height: 100px;
+}
+
+
+/* Footer */
+
+#card-copy {
+    font-size: 14px;
+    color: var(--primary-text-color);
+}
+
+#card-copy span {
+    border-bottom: 1px dashed #ccc;
+}
+
+@media screen and (max-width: 700px) {
+    #img-section {
+        padding: 0 1em;
+    }
+    #img-heading {
+        margin-left: 0.6em;
+        margin-right: 0.6em;
+    }
+    #message {
+        min-width: 0px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .cards {
+        min-width: none;
+    }
+    #profile {
+        display: block;
+    }
+    #profile_info {
+        display: none;
+    }
+    #profile_img {
+        width: auto !important;
+    }
+    #form_input {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 325px) {
+    .card-box:last-child {
+        padding-left: 0.8em !important;
+        padding-right: 0.8em !important;
+    }
+    .icons {
+        margin: auto 5px;
+        font-size: 20px;
+    }
+    .cards {
+        min-height: 0;
+    }
+    .icons.active::after {
+        width: 20px;
+        height: 20px;
+        z-index: -10;
+        bottom: -1.5em;
+        left: 0;
+    }
+    #img-section {
+        padding: 0 0em;
+        padding-right: 1em;
+    }
+    #img-heading {
+        margin-top: 2em;
+        margin-left: 1em;
+        margin-right: 0em;
+    }
+    #img-section img {
+        width: 100%;
+    }
+}

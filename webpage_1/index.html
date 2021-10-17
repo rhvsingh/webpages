@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>codedamn Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href='style.css'>
+</head>
+
+<body>
+    <!-- start writing your code -->
+    <section>
+        <div class="card-box">
+            <i class="fa fa-home icons active"></i>
+            <i class="fa fa-folder icons"></i>
+            <i class="fa fa-envelope icons"></i>
+            <i class="fa fa-twitter icons"></i>
+        </div>
+        <div class='card-box'>
+            <div class="cards active">
+                <div id="profile">
+
+                    <div id="profile_info">
+                        <h1>Raja Harsh Vardhan Singh</h1>
+                        <span>Front-End Web Developer</span>
+                    </div>
+                    <div id="profile_img">
+                        <img src="assets/images/me.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="cards">
+                <div id="img-section">
+                    <div id="img-heading">
+                        <h1>Work</h1>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
+                    </div>
+                    <div>
+                        <img src="assets/images/img1.jpg">
+                        <img src="assets/images/img1.jpg">
+                        <img src="assets/images/img1.jpg">
+                        <img src="assets/images/img1.jpg">
+                        <img src="assets/images/img1.jpg">
+                        <img src="assets/images/img1.jpg">
+                        <img src="assets/images/img1.jpg">
+                        <img src="assets/images/img1.jpg">
+                        <img src="assets/images/img1.jpg">
+                        <img src="assets/images/img1.jpg">
+                        <img src="assets/images/img1.jpg">
+                        <img src="assets/images/img1.jpg">
+                    </div>
+                </div>
+
+            </div>
+            <div class="cards">
+                <div id="message">
+                    <div id="message-heading">
+                        Contact Me
+                    </div>
+                    <form action="/action_page.php">
+                        <div id='form_input'>
+
+                            <input type="text" placeholder="Name">
+
+                            <input type="email" placeholder="Email">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Subject">
+                        </div>
+                        <div>
+                            <textarea placeholder="Message"></textarea>
+                        </div>
+                        <input type="submit" value="Send Message">
+                    </form>
+                </div>
+
+            </div>
+            <div class="cards">
+                <div id="social">Twitter</div>
+            </div>
+            <div class="card-box">
+                <div id="card-copy">
+                    &copy; Untitled. &nbsp; | &nbsp; Design: <span>HTML5 UP</span> &nbsp; | &nbsp; Demo Images: <span>Unsplash</span>
+                </div>
+            </div>
+    </section>
+
+    <script>
+        var icons = document.querySelectorAll('.icons');
+        var cards = document.querySelectorAll('.cards');
+
+        for (let i = 0; i < icons.length; i++) {
+            icons[i].onclick = function() {
+                let j = 0;
+                while (j < icons.length) {
+                    icons[j].classList.remove('active');
+
+                    cards[j].classList.remove('active');
+                    j++;
+                }
+                icons[i].classList.add('active');
+                cards[i].classList.add('active');
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans Pro', Helvetica, sans-serif;
+}
+
+#overlay {
+    display: none;
+    visibility: 0;
+    opacity: 0;
+    position: fixed;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(51, 51, 51, 0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.5s ease-in-out;
+}
+
+#display-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+    font-size: 20px;
+}
+
+.align-image {
+    position: relative;
+    width: 800px;
+}
+
+@media screen and (max-width: 900px) {
+    .align-image {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .align-image {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .align-image {
+        width: 100%;
+    }
+}
+
+#close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: #ccc;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.display-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    font-size: 60px;
+    font-weight: 100;
+    color: #555;
+    cursor: pointer;
+}
+
+#arrow-left {
+    left: 10px;
+}
+
+#arrow-right {
+    right: 10px;
+}
+
+#content-show {
+    position: relative;
+    transition: all 0.5s ease-in-out;
+}
+
+#content-show img {
+    width: 100%;
+    display: block;
+}
+
+#main {
+    text-align: center;
+    font-size: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 720px) {
+    #main {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #main {
+        grid-template-columns: 1fr;
+    }
+}
+
+.img-box {
+    position: relative;
+    /* display: inline-block; */
+    text-align: left;
+}
+
+.img-box img {
+    display: block;
+    width: 100%;
+}
+
+.img-text {
+    font-size: 15px;
+    text-transform: uppercase;
+    position: absolute;
+    z-index: 1;
+    bottom: 20px;
+    left: 30px;
+    color: #fff;
+}
