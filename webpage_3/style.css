@@ -102,6 +102,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     cursor: pointer;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 720px) {
@@ -120,6 +121,7 @@ body {
     position: relative;
     /* display: inline-block; */
     text-align: left;
+    transition: all 0.2s ease-in-out;
 }
 
 .img-box img {
@@ -135,4 +137,10 @@ body {
     bottom: 20px;
     left: 30px;
     color: #fff;
+}
+
+.img-box:hover {
+    border-radius: 5px;
+    transform: scale(1.01);
+    z-index: 4;
 }
