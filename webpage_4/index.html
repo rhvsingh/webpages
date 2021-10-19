@@ -14,62 +14,71 @@
 </head>
 
 <body>
-    <div>
+    <header>
         <div>
             <i class="fa fa-clock-o"></i>
-            <input type="search" placeholder="Search tutorial-daltonic">
-            <i class="fa fa-question-circle-o"></i>
+            <div id="header-input">
+                <i class="fa fa-search"></i>
+                <input type="search" placeholder="Search tutorial-daltonic">
+            </div>
+            <i class="fa fa-question-circle-o" style='font-weight: bold;'></i>
         </div>
-        <div><img src='assets/images/icon.png' style='filter:invert(1)'></div>
-    </div>
-    <div>
-        <div>
-            <div>
+        <div id='header-img'><img src='assets/images/icon.png' style='filter:invert(1)'></div>
+    </header>
+    <section>
+        <div id="sidebar">
+            <div id="status-info">
                 <div>
-                    <h2>Cometchat (e)</h2>
-                    <span><i class="fa fa-circle"></i></span>Vikrant
+                    <h3>Cometchat (e)</h3>
+                    <i class="fa fa-circle" id='online-status'></i>Vikrant
                 </div>
-                <div>
-                    <i class="fa fa-pencil"></i>
+                <div id='pencil-div'>
+                    <i class="fa fa-pencil" id='edit-pencil'></i>
                 </div>
             </div>
-            <div>
+            <div id='feature-function'>
                 <ul>
-                    <li><span><i class="fa fa-commenting"></i></span> Thread</li>
-                    <li><span><i class="fa fa-at"></i></span> Mensions & Reactions</li>
-                    <li><span><i class="fa fa-ellipsis-v"></i></span> More</li>
+                    <li><i class="fa fa-commenting icon-spaces"></i> Thread</li>
+                    <li><i class="fa fa-at icon-spaces"></i> Mensions & Reactions</li>
+                    <li><i class="fa fa-ellipsis-v" id="more-dots"></i> More</li>
                 </ul>
             </div>
-            <div><span><i class="fa fa-sort-desc"></i></span> Channels
-                <ul>
-                    <li><span>+</span> Add Channel</li>
-                </ul>
-            </div>
-            <div><span><i class="fa fa-sort-desc"></i></span> Direct Messages</div>
-            <div><a href="#">Logout</a></div>
-        </div>
-        <div>
             <div>
-                <img src='assets/images/logo.png' width="100px">
+                <div id='channel-feature'>
+                    <div id="channel-list"><i class="fa fa-sort-desc icon-spaces"></i> Channels</div>
+                    <ul id="recent-channels" class="active">
+                        <li onclick="createChannel()"><span id='plus-channel'>+</span></span> Add Channel</li>
+                    </ul>
+                </div>
+            </div>
+            <div id='direct-message'><i class="fa fa-sort-desc icon-spaces"></i> Direct Messages</div>
+            <div id='logout'><a href="#">Logout</a></div>
+        </div>
+        <div id="page-show">
+            <div class='info-pages' id='intro-page'>
+                <img src='assets/images/logo.png' width="80px">
                 <h1>Welcome to Slack</h1>
                 <p>Slack brings all your team communication into one place, makes it all instantly searchable and available whenever you go.</p>
                 <p>Our aim is to make your working life simpler, more pleasant and more productive.</p>
-                <div>
-                    <button type='button'>Create Channel</button>
-                </div>
+
+                <button type='button' class='channel-button' onclick="createChannel()">Create Channel</button>
+
             </div>
-            <div>
-                <img src='assets/images/logo.png' width="100px">
-                <div><input type='text' id='' placeholder='Channel Name'></div>
+            <div class='info-pages' id='channel-page'>
+                <img src='assets/images/logo.png' width='80px'>
+                <h1>Add New Channel</h1>
+                <div><input type='text' id='channel-name' placeholder='Channel Name'></div>
                 <div>
-                    <select id=''>
-                        <option selected disabled hidden>Select privacy</option>
-                        <option value="Privacy-1">Privacy 1</option>
-                        <option value="Privacy-2">Privacy 2</option>
+                    <select id='select-privacy'>
+                        <option value='0' selected disabled hidden>Select Privacy</option>
+                        <option value="Private">Private</option>
+                        <option value="Public">Public</option>
                     </select>
                 </div>
+
+                <button type='button' class='channel-button' onclick="addChannel()">Create Channel</button>
             </div>
-            <div>
+            <div class='info-pages' id='message-page'>
                 <div>
                     <div><span><i class="fa fa-hashtag"></i></span> <span><i class="fa fa-star-o"></i></span></div>
                     <div><span><i class="fa fa-user-plus"></i></span> <span><i class="fa fa-info-circle"></i></span></div>
@@ -81,7 +90,79 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <script>
+        const channelShow = document.getElementById('channel-list');
+
+        channelShow.onclick = () => {
+            document.getElementById('recent-channels').classList.toggle('active');
+        }
+
+
+
+        const introPage = document.getElementById('intro-page');
+        const channelPage = document.getElementById('channel-page');
+        const messagePage = document.getElementById('message-page');
+        const channelName = document.getElementById('channel-name');
+        const selectPrivacy = document.getElementById('select-privacy');
+        const recentChannel = document.getElementById('recent-channels');
+        const pageShow = document.getElementById('page-show');
+
+        function createChannel() {
+            introPage.style.visibility = 'hidden';
+            introPage.style.opacity = '0';
+
+            setTimeout(function() {
+                channelPage.style.display = 'block';
+                introPage.style.display = 'none';
+                channelPage.style.visibility = 'visible';
+                channelPage.style.opacity = '1';
+            }, 400);
+        }
+
+
+        function addChannel() {
+
+            let channelNameAdded = channelName.value;
+            let privacyNameAdded;
+            let liList = document.createElement('li');
+            let divBox = document.createElement('div');
+
+            if (!(channelNameAdded == '')) {
+                if (!(selectPrivacy.value == '0')) {
+                    let randID = Math.floor(Math.random() * Date.now());
+                    //alert(randID);
+                    liList.setAttribute('id', randID);
+                    divBox.className = 'info-pages';
+                    divBox.setAttribute('id', randID);
+                    let innerContent = '<span class=""><i class="fa fa-commenting"></i></span> ' + channelNameAdded;
+                    let boxContent = "<div><div><span><i class='fa fa-hashtag'></i></span> <span><i class='fa fa-star-o'></i></span></div><div><span><i class='fa fa-user-plus'></i></span> <span><i class='fa fa-info-circle'></i></span></div></div><div><div><input type='text' id='' placeholder='Message Undefined'></div></div>";
+                    innerContent = innerContent.trim(innerContent);
+                    boxContent = boxContent.trim(boxContent);
+
+                    liList.innerHTML = innerContent;
+                    divBox.innerHTML = boxContent;
+                    let textnode = document.createTextNode(innerContent);
+                    //node.appendChild(textnode);
+                    //node.appendChild(innerContent);
+                    //privacyNameAdded = selectPrivacy.value;
+                    recentChannel.insertBefore(liList, recentChannel.childNodes[0]);
+                    //recentChannel.appendChild(node);
+                    pageShow.appendChild(divBox);
+
+                    channelName.value = '';
+                    selectPrivacy.selectedIndex = 0;
+                } else {
+                    alert('Please select privacy');
+                }
+            } else {
+                alert('Please enter channel name');
+            }
+
+
+        }
+    </script>
 </body>
 
 </html>
