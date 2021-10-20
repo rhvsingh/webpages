@@ -19,8 +19,8 @@ function createChannel() {
     introPage.style.opacity = '0';
 
     setTimeout(function() {
-        channelPage.style.display = 'block';
         introPage.style.display = 'none';
+        channelPage.style.display = 'block';
         channelPage.style.visibility = 'visible';
         channelPage.style.opacity = '1';
     }, 400);
@@ -30,19 +30,30 @@ function createChannel() {
 function addChannel() {
 
     let channelNameAdded = channelName.value;
-    let privacyNameAdded;
     let liList = document.createElement('li');
     let divBox = document.createElement('div');
 
     if (!(channelNameAdded == '')) {
         if (!(selectPrivacy.value == '0')) {
+
             let randID = Math.floor(Math.random() * Date.now());
             //alert(randID);
             liList.setAttribute('id', randID);
+
+            channelPage.style.visibility = 'hidden';
+            channelPage.style.opacity = '0';
             divBox.className = 'info-pages';
+
+            setTimeout(function() {
+                channelPage.style.display = 'none';
+                pageShow.style.display = 'block';
+                divBox.className = 'info-pages message-page active';
+            }, 400);
+
             divBox.setAttribute('id', randID);
-            let innerContent = '<span class=""><i class="fa fa-commenting"></i></span> ' + channelNameAdded;
-            let boxContent = "<div><div><span><i class='fa fa-hashtag'></i></span> <span><i class='fa fa-star-o'></i></span></div><div><span><i class='fa fa-user-plus'></i></span> <span><i class='fa fa-info-circle'></i></span></div></div><div><div><input type='text' id='' placeholder='Message Undefined'></div></div>";
+
+            let innerContent = '<i class="fa fa-commenting"></i> ' + channelNameAdded;
+            let boxContent = "<div class='message-header'><div><i class='fa fa-hashtag'></i><i class='fa fa-star-o' style='font-weight:bold;'></i></div><div><i class='fa fa-user-plus'></i><i class='fa fa-info-circle'></i></div></div><div><div></div><div class='message-textarea'><input type='text' id='' placeholder='Message Undefined'></div></div>";
             innerContent = innerContent.trim(innerContent);
             boxContent = boxContent.trim(boxContent);
 
@@ -55,7 +66,6 @@ function addChannel() {
             recentChannel.insertBefore(liList, recentChannel.childNodes[0]);
             //recentChannel.appendChild(node);
             pageShow.appendChild(divBox);
-
             channelName.value = '';
             selectPrivacy.selectedIndex = 0;
         } else {

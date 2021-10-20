@@ -78,13 +78,16 @@
 
                 <button type='button' class='channel-button' onclick="addChannel()">Create Channel</button>
             </div>
-            <div class='info-pages' id='message-page'>
-                <div>
-                    <div><span><i class="fa fa-hashtag"></i></span> <span><i class="fa fa-star-o"></i></span></div>
-                    <div><span><i class="fa fa-user-plus"></i></span> <span><i class="fa fa-info-circle"></i></span></div>
+            <div class='info-pages message-page'>
+                <div class='message-header'>
+                    <div><i class="fa fa-hashtag"></i> <i class="fa fa-star-o" style='font-weight:bold;'></i></div>
+                    <div><i class="fa fa-user-plus"></i> <i class="fa fa-info-circle"></i></div>
                 </div>
                 <div>
                     <div>
+                        <!-- Message Content -->
+                    </div>
+                    <div class="message-textarea">
                         <input type='text' id='' placeholder='Message Undefined'>
                     </div>
                 </div>
