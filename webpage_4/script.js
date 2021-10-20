@@ -14,7 +14,18 @@ const selectPrivacy = document.getElementById('select-privacy');
 const recentChannel = document.getElementById('recent-channels');
 const pageShow = document.getElementById('page-show');
 
+var buttonClick = 0;
+
 function createChannel() {
+    if (buttonClick == 0) {
+        buttonClick = 1;
+    } else {
+        var messagePage = document.getElementsByClassName('message-page');
+        pageShow.style.display = 'flex';
+        for (let i = 0; i < messagePage.length; i++) {
+            messagePage[i].classList.remove('active');
+        }
+    }
     introPage.style.visibility = 'hidden';
     introPage.style.opacity = '0';
 
@@ -26,6 +37,19 @@ function createChannel() {
     }, 400);
 }
 
+var messageButton = document.getElementById('message-textarea');
+var container = document.getElementById('container');
+messageButton.addEventListener('keypress', function(e) {
+    if (e.keyCode == 13) {
+        console.log(e.target.value);
+        let paraGraph = document.createElement('p');
+        let textnode = document.createTextNode(e.target.value);
+        paraGraph.appendChild(textnode);
+        container.insertBefore(paraGraph, container.childNodes[0]);
+        //container.appendChild(paraGraph);
+        messageButton.value = '';
+    }
+})
 
 function addChannel() {
 
