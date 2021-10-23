@@ -79,12 +79,36 @@ section {
     width: 100%;
 }
 
+#open-menu {
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: none;
+}
+
+#open-menu i {
+    margin-right: 5px;
+}
+
+#close-menu {
+    text-align: right;
+    color: #777;
+    margin-top: 15px;
+    margin-right: 20px;
+    display: none;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 4px 4px 0px 0px;
     overflow: hidden;
+    transition: all 0.3s ease-in-out;
 }
 
 nav ul {
@@ -335,8 +359,6 @@ main {
     color: #666;
 }
 
-#contact_details {}
-
 #contact_details>div {
     display: flex;
     flex-wrap: wrap;
@@ -394,6 +416,10 @@ footer {
     .container h1 {
         font-size: 40px;
     }
+    #open-menu,
+    #close-menu {
+        display: block;
+    }
     nav {
         position: fixed;
         top: 0;
@@ -402,14 +428,11 @@ footer {
         display: block;
         height: 100%;
         background-color: #fff;
-        /* animation: trans 1s ease-in-out infinite; */
         min-width: 250px;
         z-index: 10000;
     }
-    @keyframes trans {
-        to {
-            transform: translateX(0%);
-        }
+    nav.active {
+        transform: translateX(0);
     }
     nav li {
         display: block;
