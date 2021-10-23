@@ -136,6 +136,103 @@ main {
     background: #fff;
 }
 
+
+/* Parent-Box */
+
+.parent-box {
+    padding: 4em 6em;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.parent-box-date {
+    position: relative;
+    z-index: 0;
+    margin: 2em auto;
+}
+
+.parent-box-date::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #eee;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -2;
+}
+
+.parent-box-date::after {
+    min-width: 170px;
+    height: 50px;
+    background-color: #fff;
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.parent-box-title {
+    font-size: 70px;
+    font-weight: bold;
+    margin: 1em auto;
+    text-transform: uppercase;
+}
+
+.parent-box-para {}
+
+.parent-box-image {}
+
+.parent-box-image img {
+    width: 100%;
+    display: block;
+}
+
+
+/* Child Boxes */
+
+.child-boxes {}
+
+.child-boxes-date {}
+
+.child-boxes-title {}
+
+.child-boxes-image {}
+
+.child-boxes-para {}
+
+
+/* Pagination */
+
+.pagination {
+    margin: 4em auto;
+    text-align: center;
+}
+
+.pagination span {
+    padding: 15px 20px;
+    border: 1px solid #eee;
+    border-collapse: collapse;
+    border-right: 0;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.pagination span:last-child {
+    border-right: 1px solid #eee;
+}
+
+.pagination span.active {
+    background-color: #eee;
+}
+
+
+/* Form Footer Section */
+
 #contact {
     display: flex;
     flex: 1 1;
@@ -205,12 +302,24 @@ main {
 
 #contact_details>div>div:first-child {
     min-width: 80px;
+    font-weight: bold;
+    color: #555;
+    font-size: 16px;
 }
 
-#contact_details>div:nth-child(2) {
+#contact_details>div>div:last-child {
+    color: #888;
+}
+
+#contact_details>div {
     border: 1px solid #ccc;
     border-left: 0;
     border-right: 0;
+    border-top: 0;
+}
+
+#contact_details>div:last-child {
+    border-bottom: 0;
 }
 
 #contact_details i {
@@ -219,8 +328,19 @@ main {
     border-radius: 50%;
     color: #777;
     margin-right: 8px;
+    position: relative;
+    top: -8px;
 }
 
 #contact_details i.fa-facebook {
     padding-inline: 0.7em;
+}
+
+footer {
+    color: #777;
+    margin: 30px auto;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
 }
