@@ -11,6 +11,16 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: top;
+    font-family: 'Merriweather', Georgia, serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: font-family: "Source Sans Pro", Helvetica, sans-serif;
 }
 
 span {
@@ -28,7 +38,6 @@ header {
     transform: translateY(-15vh);
     text-align: center;
     color: #fff;
-    font-family: "Source Sans Pro", Helvetica, sans-serif;
 }
 
 .container h1 {
@@ -316,7 +325,7 @@ main {
 #form_contact {
     /* padding-right: 10px; */
     padding-block: 3.6em;
-    border-right: 2px solid #ccc;
+    border-right: 1px solid #ccc;
 }
 
 #form_contact.spacing {
@@ -409,7 +418,8 @@ footer {
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 10px;
+    letter-spacing: 2px;
 }
 
 @media screen and (max-width: 620px) {
