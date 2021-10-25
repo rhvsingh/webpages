@@ -11,6 +11,9 @@ const channelName = document.getElementById('channel-name');
 const selectPrivacy = document.getElementById('select-privacy');
 const recentChannel = document.getElementById('recent-channels');
 const pageShow = document.getElementById('page-show');
+const messageButton = document.getElementsByClassName('message-textarea');
+const messageBox = document.getElementsByClassName('message-box');
+
 
 var buttonClick = 0;
 
@@ -35,19 +38,8 @@ function createChannel() {
     }, 400);
 }
 
-var messageButton = document.getElementById('message-textarea');
-var container = document.getElementById('container');
-messageButton.addEventListener('keypress', function(e) {
-    if (e.keyCode == 13) {
-        console.log(e.target.value);
-        let paraGraph = document.createElement('p');
-        let textnode = document.createTextNode(e.target.value);
-        paraGraph.appendChild(textnode);
-        container.insertBefore(paraGraph, container.childNodes[0]);
-        //container.appendChild(paraGraph);
-        messageButton.value = '';
-    }
-});
+
+
 
 function addChannel() {
 
@@ -76,7 +68,7 @@ function addChannel() {
             divBox.setAttribute('id', randID);
 
             let innerContent = '<i class="fa fa-commenting"></i> ' + channelNameAdded;
-            let boxContent = "<div class='message-header'><div><i class='fa fa-hashtag'></i><i class='fa fa-star-o' style='font-weight:bold;'></i></div><div><i class='fa fa-user-plus'></i><i class='fa fa-info-circle'></i></div></div><div><div></div><div class='message-textarea'><input type='text' id='' placeholder='Message Undefined'></div></div>";
+            let boxContent = "<div class='message-header'><div><i class='fa fa-hashtag'></i><i class='fa fa-star-o' style='font-weight:bold;'></i></div><div><i class='fa fa-user-plus'></i><i class='fa fa-info-circle'></i></div></div><div class='message-box' id='" + randID + "'></div><div class='message-textarea'><input type='text' class='message-textarea' id='" + randID + "' placeholder='Message Undefined'></div></div>";
             innerContent = innerContent.trim(innerContent);
             boxContent = boxContent.trim(boxContent);
 
@@ -92,6 +84,34 @@ function addChannel() {
             channelName.value = '';
             selectPrivacy.selectedIndex = 0;
             addClasses();
+            for (let i = 0; i < messageButton.length; i++) {
+                if (messageButton[i].hasAttribute('id')) {
+                    if (messageButton[i].getAttribute('id') == randID) {
+                        messageButton[i].addEventListener('keypress', function(e) {
+                            if (e.keyCode == 13) {
+                                //console.log(e.target.value);
+                                //console.log(e.target.id);
+                                let paraGraph = document.createElement('p');
+                                let textnode = document.createTextNode(e.target.value);
+                                paraGraph.appendChild(textnode);
+                                for (let j = 0; j < messageBox.length; j++) {
+                                    if (messageBox[j].hasAttribute('id')) {
+                                        if (messageBox[j].getAttribute('id') == e.target.id) {
+                                            messageBox[j].insertBefore(paraGraph, messageBox[j].childNodes[0]);
+                                            //messageBox.appendChild(paraGraph);
+                                            messageButton[i].value = '';
+                                        }
+                                    }
+                                }
+                            } else {
+                                //console.log('Yeah baby');
+                            }
+                        });
+                    }
+                }
+
+            }
+
         } else {
             alert('Please select privacy');
         }
@@ -108,12 +128,12 @@ function addClasses() {
     for (let i = 0; i < listElements.length; i++) {
         if (listElements[i].classList.contains('added-channels')) {
             listElements[i].onclick = function() {
-                console.log(listElements[i].getAttribute('id'));
+                //console.log(listElements[i].getAttribute('id'));
                 let id = listElements[i].getAttribute('id');
                 messagePage.length
                 for (let i = 0; i < messagePage.length; i++) {
                     if (id == messagePage[i].getAttribute('id')) {
-                        console.log('True');
+                        //console.log('True');
                         let j = 0;
                         while (j < messagePage.length) {
                             messagePage[j++].className = "info-pages message-page";
@@ -132,6 +152,4 @@ function addClasses() {
             //console.log('Not contains');
         }
     }
-
-
 }
