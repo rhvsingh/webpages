@@ -3,6 +3,7 @@
 *::after {
     margin: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -56,6 +57,10 @@ header {
     font-style: italic;
 }
 
+.container a {
+    color: inherit;
+}
+
 .container i {
     font-size: 18px;
     padding: 20px;
@@ -74,7 +79,7 @@ header {
     20% {
         border-color: aqua;
     }
-    80%,
+    60%,
     100% {
         border-color: aqua;
         color: aqua;
