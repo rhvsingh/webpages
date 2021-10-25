@@ -4,11 +4,9 @@ channelShow.onclick = () => {
     document.getElementById('recent-channels').classList.toggle('active');
 }
 
-
-
 const introPage = document.getElementById('intro-page');
 const channelPage = document.getElementById('channel-page');
-const messagePage = document.getElementById('message-page');
+const messagePage = document.getElementsByClassName('message-page');
 const channelName = document.getElementById('channel-name');
 const selectPrivacy = document.getElementById('select-privacy');
 const recentChannel = document.getElementById('recent-channels');
@@ -20,7 +18,7 @@ function createChannel() {
     if (buttonClick == 0) {
         buttonClick = 1;
     } else {
-        var messagePage = document.getElementsByClassName('message-page');
+
         pageShow.style.display = 'flex';
         for (let i = 0; i < messagePage.length; i++) {
             messagePage[i].classList.remove('active');
@@ -49,7 +47,7 @@ messageButton.addEventListener('keypress', function(e) {
         //container.appendChild(paraGraph);
         messageButton.value = '';
     }
-})
+});
 
 function addChannel() {
 
@@ -63,6 +61,7 @@ function addChannel() {
             let randID = Math.floor(Math.random() * Date.now());
             //alert(randID);
             liList.setAttribute('id', randID);
+            liList.setAttribute('class', 'list-elements added-channels');
 
             channelPage.style.visibility = 'hidden';
             channelPage.style.opacity = '0';
@@ -92,11 +91,46 @@ function addChannel() {
             pageShow.appendChild(divBox);
             channelName.value = '';
             selectPrivacy.selectedIndex = 0;
+            addClasses();
         } else {
             alert('Please select privacy');
         }
     } else {
         alert('Please enter channel name');
+    }
+
+}
+
+addClasses();
+
+function addClasses() {
+    var listElements = document.querySelectorAll('.list-elements');
+    for (let i = 0; i < listElements.length; i++) {
+        if (listElements[i].classList.contains('added-channels')) {
+            listElements[i].onclick = function() {
+                console.log(listElements[i].getAttribute('id'));
+                let id = listElements[i].getAttribute('id');
+                messagePage.length
+                for (let i = 0; i < messagePage.length; i++) {
+                    if (id == messagePage[i].getAttribute('id')) {
+                        console.log('True');
+                        let j = 0;
+                        while (j < messagePage.length) {
+                            messagePage[j++].className = "info-pages message-page";
+                        }
+                        messagePage[i].className = "info-pages message-page active";
+                    } else {
+                        /* console.log('False'); */
+                    }
+                }
+                pageShow.style.display = 'block';
+                channelPage.style.display = 'none';
+                channelPage.style.visibility = 'hidden';
+                channelPage.style.opacity = '0';
+            }
+        } else {
+            //console.log('Not contains');
+        }
     }
 
 
