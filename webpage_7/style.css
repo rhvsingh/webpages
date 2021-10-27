@@ -24,12 +24,20 @@ body {
     text-transform: uppercase;
     font-weight: 600;
     cursor: pointer;
-    z-index: 10;
+    z-index: 20;
+}
+
+#close-login {
+    text-align: right;
+    font-size: 24px;
+    margin-top: 10px;
+    margin-right: 15px;
+    color: #777;
+    cursor: pointer;
 }
 
 #login-form {
     position: fixed;
-    color: #fff;
     display: flex;
     justify-content: center;
     left: 0;
@@ -40,11 +48,70 @@ body {
     visibility: hidden;
     opacity: 0;
     transition: all 0.3s ease-in-out;
+    z-index: 10;
 }
 
 #login-form.active {
     visibility: visible;
     opacity: 1;
+}
+
+#login-form-content {
+    background: #fff;
+}
+
+#login-form-content .space {
+    padding: 0 2.5em;
+}
+
+#login-form-content form h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#login-form-content form label {
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: #777;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#login-form-content form input {
+    margin-top: 2px;
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 4px;
+    outline: none;
+    border: 2px solid #ddd;
+}
+
+#login-form-content form input[type="submit"] {
+    color: #ddd;
+    background-color: #000;
+    border: 0;
+    font-weight: bold;
+    font-family: 'Rubik', sans-serif;
+    font-size: 12px;
+    padding: 15px 0;
+    letter-spacing: 1.2px;
+    margin-top: 4em;
+    margin-bottom: 3em;
+}
+
+#login-form-footer {
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    padding: 1.7em 3em;
+    background-color: #f7f7f9;
+}
+
+#login-form-footer a {
+    text-decoration: none;
+    color: rgb(85, 151, 192);
 }
 
 .space {
@@ -261,7 +328,7 @@ body {
 }
 
 #sec-4 {
-    padding: 2em;
+    padding: 2em 1.7em;
     background: #151516;
 }
 
@@ -270,8 +337,42 @@ body {
     border-radius: 8px;
     text-align: center;
     margin: 0 auto;
-    padding-block: 4em;
+    padding-block: 5em;
     color: #ddd;
+}
+
+#sec-4 p {
+    color: #13cc70;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    max-width: 700px;
+    line-height: 1.8;
+    margin: 0 auto;
+}
+
+#sec-4 p:nth-child(3) {
+    color: #eee;
+    font-weight: normal;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+#sec-4 h1 {
+    font-size: 60px;
+    color: #eee;
+    margin: 15px 0 20px 0;
+}
+
+#sec-4 h6 {
+    font-size: 8px;
+    color: #ccc;
+    font-weight: normal;
+    margin: 2.2em 0;
+}
+
+#sec-4 a {
+    color: #eee;
 }
 
 #sec-5 {
@@ -282,6 +383,29 @@ body {
     display: flex;
     align-items: center;
     padding-left: 4em;
+}
+
+#sec-5>div {
+    max-width: 450px;
+    color: #fff;
+}
+
+#sec-5 h1 {
+    font-size: 60px;
+}
+
+#sec-5 p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #eee;
+    margin: 15px 0 30px 0;
+}
+
+#sec-5 h6 {
+    color: #ccc;
+    font-size: 8px;
+    font-weight: normal;
+    margin-top: 20px;
 }
 
 #sec-5 ul {
