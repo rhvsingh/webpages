@@ -6,6 +6,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page of All</title>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            /* background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); */
+            /* background: linear-gradient(to top, #a8edea 0%, #fed6e3 100%); */
+            /* background: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
+            /* background: linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%); */
+            background: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+            background-repeat: no-repeat;
+            background-size: 200% 200%;
+            min-height: 100vh;
+            font-family: sans-serif;
+            animation: bgChange 10s linear infinite;
+        }
+        
+        @keyframes bgChange {
+            0% {
+                background-position: 0% 0%
+            }
+            50% {
+                background-position: 100% 100%
+            }
+            100% {
+                background-position: 0% 0%
+            }
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 80px;
+            margin-bottom: 10px;
+            margin-top: 0;
+            color: transparent;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: #333;
+        }
+        
+        ul {
+            list-style: numeric;
+            margin: 0;
+            padding: 0 10px;
+        }
+        
+        ul>li {
+            margin: 25px 15px;
+        }
+        
+        ul>li a {
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            color: transparent;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: #333;
+            font-size: 50px;
+        }
+        
+        ul>li a:hover {
+            color: #333;
+        }
+        
+        @media screen and (max-width: 525px) {
+            h1 {
+                font-size: 50px;
+                -webkit-text-stroke-width: 1px;
+            }
+            ul>li a {
+                -webkit-text-stroke-width: 0.8px;
+                -webkit-text-stroke-color: #777;
+                font-size: 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
