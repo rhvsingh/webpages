@@ -253,6 +253,23 @@ body {
     background-color: transparent;
 }
 
+@media screen and (max-width: 790px) {
+    #sec-2 {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+    #sec-2>div:last-child {
+        min-width: 150px;
+        text-align: center;
+        margin-top: 20px;
+    }
+    #sec-2-header {
+        display: inline-block;
+        margin-left: 0px;
+    }
+}
+
 #sec-3 {
     background: #000;
     color: #fff;
