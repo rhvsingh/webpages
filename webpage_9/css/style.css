@@ -336,13 +336,28 @@ code {
     padding: 1.25em;
     border-radius: 3px;
     box-shadow: 0px 6px 15px -1px #ddd;
-    min-height: 160px
+    min-height: 160px;
+    color: var(--text-custom-2)
 }
 
 .tut-cards>div>div:first-child {
-    font-size: 1.4rem;
+    margin-bottom: 1.5em
+}
+
+.tut-cards a {
+    font-size: 1.5rem;
     color: var(--background-custom-1);
-    margin-bottom: 1em
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    text-decoration: none;
+    cursor: pointer
+}
+
+.tut-cards a:hover {
+    color: var(--background-custom-2)
+}
+
+.tut-cards>div>div:last-child {
+    line-height: 1.5
 }
 
 
@@ -400,6 +415,7 @@ footer {
     padding: 1rem;
     font-family: inherit;
     font-size: 1.15em;
+    cursor: pointer;
     background-color: var(--background-custom-1)
 }
 
