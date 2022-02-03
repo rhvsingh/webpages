@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Indic Layout Parser</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="max-width">
+            <div class="header flex-space">
+                <div class="header-title">Indic Layout Parser</div>
+                <div id="menu-toggler"><i class="fa fa-bars"></i></div>
+                <nav id="navigation">
+                    <ul class="flex">
+                        <li>Tutorials</li>
+                        <li>Docs</li>
+                        <li>Open Platform</li>
+                        <li>Discussion</li>
+                        <li><i class="fa fa-github"></i></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="header-content" style="margin:2em 0">
+                <h1>Layout Analysis – in 4 Lines of Code</h1>
+                <p>Transform document image analysis pipelines with the full power of Deep Learning.</p>
+            </div>
+            <button class="header-button"><i class="fa fa-files-o"></i> pip install layoutparser</button>
+
+        </div>
+    </header>
+
+    <main>
+        <div class="max-width">
+
+            <section class="main-sec-head">
+                <h1>What is Layout Parser?</h1>
+                <h3>A Unified Toolkit for Deep Learning Based Document Image Analysis</h3>
+            </section>
+            <section class="switcher-section flex-center">
+                <section>
+                    <div class="switcher-heading">LAYOUT DETECTION</div>
+
+                    <div class="switcher-section-1 is-active">Deep Learning Models</div>
+                    <div class="switcher-section-1">Pre-trained Model Zoo</div>
+
+                    <div class="switcher-heading">POST-PROCESSING</div>
+
+                    <div class="switcher-section-1">Layout Data structure</div>
+                    <div class="switcher-section-1">Visualization</div>
+                    <div class="switcher-section-1">Export and Storage</div>
+
+                    <div class="switcher-heading">CUSTOMIZATION</div>
+
+                    <div class="switcher-section-1">Train Layout Models</div>
+                    <div class="switcher-section-1">Efficient Data Labeling</div>
+
+                    <div class="switcher-heading">COMMUNITY &amp; RESOURCES</div>
+
+                    <div class="switcher-section-1">Sharing Platform</div>
+                    <div class="switcher-section-1">Tutorial Video</div>
+
+                </section>
+                <section>
+                    <div class="switcher-section-2 is-active">
+                        <h2>Accurate Layout Detection with a Simple and Clean Interface</h2>
+                        <p>
+                            With the help of state-of-the-art deep learning models, Layout Parser enables extracting complicated document structures using only several lines of code. This method is also more robust and generalizable as no sophisticated rules are involved in this
+                            process
+                        </p>
+                        <p class="switcher-points">
+                            ▲ A set of universal APIs for performing layout detections on different types of documents.
+                        </p>
+                    </div>
+                    <div class="switcher-section-2">
+                        <h2>A Wealth of Pre-trained Models on Different Datasets</h2>
+                        <p>
+                            To accommodate heterogenous document layout structures, Layout Parser a collection of DL models trained on different datasets. Currently the are 9 models trained on 5 diverse datasets, and they can be loaded via a unified interface.
+                        </p>
+                        <p class="switcher-points">
+                            ▲ Exemplar images in the 5 used datasets (screenshots are taken from their papers or open-sourced datasets).
+                        </p>
+                        <div class="switcher-see">
+                            <b>See Also:</b>
+                            <ul>
+                                <li><a href="#">Layout Parser Model Zoo</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="switcher-section-2">
+                        <h2>Easy Layout Data Manipulation and Processing</h2>
+                        <p>
+                            Layout Parser supports different levels of abstraction of layout data, and provide three classes of representation for layout data, namely, <code>Coordinates</code>, <code>TextBlock</code>, and <code>Layout</code>. The same
+                            operations and transformations are supported inter and intra these classes to maximize the efficiency when processing the layout data.
+                        </p>
+                        <div class="switcher-see">
+                            <b>See Also:</b>
+                            <ul>
+                                <li><a href="#">Layout Data Structure Documentation</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="switcher-section-2">
+                        <h2>Highly Customizable Layout Data Visualization</h2>
+                        <p>
+                            Layout Parser visualizes the layout data using a simple syntax: <code>lp.draw_box</code> or <code>lp.draw_text</code> . It provides two modes for displaying the layout data: Mode I directly overlays the layout region bounding
+                            boxes and categories over the original image. Mode II recreates the original document via drawing the OCR’d texts at their corresponding positions on the image canvas.
+                        </p>
+                        <div class="switcher-see">
+                            <b>See Also:</b>
+                            <ul>
+                                <li><a href="#">Layout Parser Visualization Documentation</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="switcher-section-2">
+                        <h2>Export Layout Data in Your Favorite Format</h2>
+                        <p>
+                            Layout Parser supports loading and exporting layout data to different formats, including general formats like <code>csv</code>, <code>json</code>, or domain-specific formats like <code>PAGE</code>, <code>COCO</code>, or <code>METS/ALTO</code>                            format (Full support for them will be released soon). It provides the flexibility for integrating Layout Parser with other document image analysis pipelines, and makes it easy to share your outputs with the community.
+                        </p>
+                    </div>
+                    <div class="switcher-section-2">
+                        <h2>Easy to Train Your Own Layout Models with Best Accuracy</h2>
+                        <p>
+                            Layout Parser also comes with full support for customized layout model training on your own dataset. This enables you to achieve optimal prediction accuracy on your own dataset and can simplify your pipeline. Different training mode are supported, i.e.,
+                            training from scratch or fine-tuning from an existing model. Learn more details at <a href="#">Layout-Parser/layout-model-training</a>.
+                        </p>
+                        <div class="switcher-see">
+                            <b>See Also:</b>
+                            <ul>
+                                <li><a href="#">The layout-model-training Repository</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="switcher-section-2">
+                        <h2>Efficiently Creating Your Training Dataset</h2>
+                        <p>
+                            No labeled training data available? Don’t worry! Layout Parser also incorporates a data annotation toolkit that enables creating the training dataset much more efficiently. Shown in the illustration below, the tool loads layout predictions from pre-trained
+                            models (a), and users only need to select and check a small percentage of model predictions to correct or relabel (b). False-Negative Highlighter (c) helps recognize mis-identified objects from the model predictions. After
+                            these steps, the full image annotation is created with less effort.
+                        </p>
+                        <p class="switcher-points">
+                            ▲ Illustration of the annotation interface with Object-Level Active Learning features. <a href="#">Learn more in this paper</a>.
+                        </p>
+                        <div class="switcher-see">
+                            <b>See Also:</b>
+                            <ul>
+                                <li><a href="#">Layout Annotation Service</a></li>
+                                <li><a href="#">The PAWLS Annotation Tool</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="switcher-section-2">
+                        <h2>Layout Models & Pipelines Sharing Platform</h2>
+                        <p>
+                            Layout Parser also aims to create a community platform for document image analysis (DIA) research and application. One key challenge in current DIA is the reusability of both layout models and pipelines. Layout Parser maintainers are currently working
+                            on implementing the platform for practitioners to share their models and pipelines easily. By streamline the distribution of layout models, as well as promoting the reusability of layout pipelines, it can potentially transform
+                            the DIA workflow and pipelines broadly.
+                        </p>
+                    </div>
+                    <div class="switcher-section-2">
+                        <div class="video-container">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YG0qepPgyGY" frameborder="0" allowfullscreen="true"></iframe>
+                        </div>
+                        <p class="switcher-points">
+                            Note: This is Layout Parser’s presentation video at <a href="#">ICDAR 2021</a>, a top venue for document recognition and understanding. In this talk, we discussed the design of the Layout Parser and demoed its key features.
+                        </p>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <section class="tut-sections">
+        <div class="max-width">
+            <div class="tut-header">
+                <h2>Get started!</h2>
+                <h3>Learn layout parser via a collection of carefully curated tutorials.</h3>
+            </div>
+            <div class="tut-cards flex-space">
+                <div>
+                    <div>Install LayoutParser</div>
+                    <div>A complete instruction for installing the main Layout Parser library and auxiliary components.</div>
+                </div>
+                <div>
+                    <div>Deep Layout Parsing</div>
+                    <div>Learn how to load DL Layout models and use them for layout detection</div>
+                </div>
+                <div>
+                    <div>Layout Model Zoo</div>
+                    <div>The full list of layout models currently available in Layout Parser</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="max-width">
+            <div class="footer-1 flex-space">
+                <div>
+                    <div class="footer-heading">Join us on Slack!</div>
+                    <div class="footer-question">Questions or Bugs? Come and join our slack channel! Let's figure out that together and make a vibrant Layout Parser community.
+                    </div>
+                    <div><button class="footer-button">Join our #Slack</button></div>
+                </div>
+                <div><img src="images/slack-lp.svg"></div>
+            </div>
+            <div class="footer-2 flex-center">
+                It's a clone of <a href="https://layout-parser.github.io/">Layout Parser Website</a>. Built by <a href="https://github.com/rhvsingh">Raja Harsh Vardhan Singh</a>.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

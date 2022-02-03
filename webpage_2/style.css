@@ -2,7 +2,7 @@
 *::before,
 *::after {
     margin: 0;
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 
 body {
@@ -15,23 +15,23 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Roboto Slab", serif;
+    font-family: "Roboto Slab", serif
 }
 
 #main-box {
     display: flex;
-    justify-content: center;
+    justify-content: center
 }
 
 .main-heading {
     font-weight: bold;
     padding: 10px 0;
-    font-size: 25px;
+    font-size: 25px
 }
 
 .title {
     position: relative;
-    padding: 5px 0;
+    padding: 5px 0
 }
 
 .title::before {
@@ -40,7 +40,7 @@ h6 {
     width: 115%;
     height: 2px;
     bottom: 0;
-    background-color: red;
+    background-color: red
 }
 
 .click-button {
@@ -51,7 +51,7 @@ h6 {
     font-weight: bold;
     border-radius: 4px;
     padding: 8px 15px;
-    margin: 25px auto;
+    margin: 25px auto
 }
 
 #box-1 {

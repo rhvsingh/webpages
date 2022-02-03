@@ -1,0 +1,511 @@
+* {
+    margin: 0;
+    box-sizing: border-box
+}
+
+:root {
+    --text-primary: #000;
+    --text-secondary: #fff;
+    --background-primary: #fff;
+    --background-secondary: #151515;
+    --text-custom-1: #333;
+    --text-custom-2: #555;
+    --text-custom-3: #777;
+    --text-custom-4: #3273dc;
+    --background-custom-1: #e46767;
+    --background-custom-2: #e43838;
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    font-family: 'Lato', sans-serif
+}
+
+.flex {
+    display: flex
+}
+
+.flex-space {
+    display: flex;
+    justify-content: space-between
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center
+}
+
+.max-width {
+    max-width: 1200px;
+    padding-inline: 25px;
+    margin-inline: auto
+}
+
+
+/* Header Section Starts Here */
+
+header {
+    background-image: linear-gradient( 141deg, #e8304f 0%, #e46767 71%, #ec8c79 100%);
+    box-shadow: 0px 0px 10px 5px #ccc;
+    font-family: 'Fira Sans Extra Condensed', sans-serif
+}
+
+.header {
+    position: relative;
+    padding-block: 0.9rem;
+    align-items: center
+}
+
+.header-title {
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    font-style: italic;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-secondary)
+}
+
+.header-title:hover {
+    background: #e05151
+}
+
+#menu-toggler {
+    display: none;
+    position: absolute;
+    top: 0.9rem;
+    right: 0;
+    font-size: 1.1rem;
+    color: var(--text-custom-1);
+    cursor: pointer;
+    padding: 2rem 2.3rem
+}
+
+#menu-toggler:focus,
+#menu-toggler:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+nav ul {
+    list-style: none
+}
+
+nav ul li {
+    padding: 2rem 0.7rem;
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 1.15rem;
+    font-weight: 400;
+    cursor: pointer
+}
+
+nav ul li:last-child {
+    position: relative;
+    margin-right: 4px;
+    margin-left: 20px;
+    top: -2px
+}
+
+nav ul li:not(:last-child):hover {
+    background: #e05151
+}
+
+.fa-github {
+    font-size: 1.53rem
+}
+
+header h1 {
+    margin-block: 0.55rem;
+    font-size: 2.49rem;
+    color: var(--text-secondary)
+}
+
+header p {
+    margin-block: 0.55rem;
+    font-size: 1.25rem;
+    color: var(--text-secondary)
+}
+
+.header-button {
+    outline: none;
+    font-family: 'Lato', sans-serif;
+    border: 1px solid var(--text-secondary);
+    background: transparent;
+    color: #eee;
+    word-spacing: 5px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 0.88em 1.5em;
+    margin-block: 1.1em 2.7em
+}
+
+.header-button:hover {
+    background: var(--background-primary);
+    color: var(--background-custom-1)
+}
+
+
+/* Header Section Ends Here */
+
+
+/* Main Section Starts Here */
+
+.main-sec-head {
+    margin: 2em auto;
+    margin-top: 2.85em;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    text-align: center
+}
+
+.main-sec-head h1 {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-custom-1)
+}
+
+.main-sec-head h3 {
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--text-custom-2)
+}
+
+.switcher-section {
+    margin-top: 2.5em
+}
+
+.switcher-section>section:first-child {
+    /* flex: 1; */
+    width: 25%;
+    padding-right: 1.2rem
+}
+
+.switcher-section>section:last-child {
+    /* flex: 3; */
+    width: 69.2%;
+    margin-left: 8.7%;
+    padding: 0.75rem
+}
+
+.switcher-heading {
+    font-size: 0.75rem;
+    margin: 15px 0;
+    color: #777;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px
+}
+
+.switcher-section-1 {
+    padding: 8px 0;
+    padding-left: 10px;
+    border-radius: 3px;
+    color: var(--text-custom-2);
+    cursor: pointer
+}
+
+.switcher-section-1:hover {
+    background-color: #eee
+}
+
+.switcher-section-1.is-active {
+    background-color: var(--background-custom-1);
+    color: var(--text-secondary)
+}
+
+.switcher-section-2 {
+    font-family: 'Lato', sans-serif;
+    display: none
+}
+
+.switcher-section-2.is-active {
+    display: block
+}
+
+.switcher-section-2 a {
+    color: var(--text-custom-4);
+    text-decoration: none
+}
+
+.switcher-section-2 a:hover {
+    color: var(--text-custom-1)
+}
+
+.switcher-section-2 h2 {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-custom-1)
+}
+
+.switcher-section-2 p {
+    line-height: 24px;
+    color: #4a4a4a;
+    font-style: normal;
+    margin: 0px 0px 16px
+}
+
+code {
+    background-color: #f5f5f5;
+    color: #d82626;
+    font-size: 1rem;
+    font-weight: normal;
+    padding: 0.25em 0.5em 0.25em;
+}
+
+.switcher-points {
+    font-style: italic;
+    font-size: 0.9rem
+}
+
+.switcher-see b {
+    color: var(--text-custom-1)
+}
+
+.switcher-see ul {
+    color: var(--text-custom-2);
+    margin-block: 1em
+}
+
+.switcher-see li {
+    margin-block: 10px
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 51%;
+}
+
+.video-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+
+/* Main Section Ends Here */
+
+
+/* Tutorial Section Starts Here */
+
+.tut-sections {
+    margin: 4em auto;
+    margin-bottom: 6em
+}
+
+.tut-header {
+    text-align: center;
+    padding: 2em 0;
+    margin-bottom: 1.7em;
+    border-top: 1px solid #ddd
+}
+
+.tut-header h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    color: var(--text-custom-1)
+}
+
+.tut-header h3 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    color: var(--text-custom-2)
+}
+
+.tut-cards {
+    gap: 1.5em
+}
+
+.tut-cards>div {
+    max-width: 370px;
+    flex: 1;
+    padding: 1.25em;
+    border-radius: 3px;
+    box-shadow: 0px 6px 15px -1px #ddd;
+    min-height: 160px
+}
+
+.tut-cards>div>div:first-child {
+    font-size: 1.4rem;
+    color: var(--background-custom-1);
+    margin-bottom: 1em
+}
+
+
+/* Tutorial Section Ends Here */
+
+
+/* Footer Section Starts Here */
+
+footer {
+    box-shadow: 0px 0px 10px 2px #ddd;
+    background-color: #f5f5f5
+}
+
+.footer-1 {
+    padding: 3em 0 5.2em;
+    font-family: 'Fira Sans Extra Condensed', sans-serif
+}
+
+.footer-1>div:first-child {
+    /* flex: 3 */
+    flex-basis: 0;
+    flex-grow: 1;
+    padding-right: 0.75rem
+}
+
+.footer-1>div:last-child {
+    /* flex: 2 */
+    width: 40%
+}
+
+.footer-1 img {
+    display: block;
+    width: 100%;
+    height: 100%
+}
+
+.footer-heading {
+    font-family: inherit;
+    font-size: 2.5em;
+    font-weight: 600;
+    color: var(--text-custom-1)
+}
+
+.footer-question {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.24rem;
+    margin: 1.5em 0;
+    color: var(--text-custom-2)
+}
+
+.footer-button {
+    outline: none;
+    border: 0;
+    color: var(--text-secondary);
+    padding: 1rem;
+    font-family: inherit;
+    font-size: 1.15em;
+    background-color: var(--background-custom-1)
+}
+
+.footer-button:hover {
+    background-color: var(--background-custom-2)
+}
+
+.footer-2 {
+    border-top: 1px solid #ddd;
+    padding: 17px;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: var(--text-custom-2)
+}
+
+.footer-2 a {
+    text-decoration: none;
+    margin-left: 3px;
+    color: var(--text-custom-4)
+}
+
+.footer-2 a:hover {
+    color: var(--text-custom-2)
+}
+
+
+/* Footer Section Ends Here */
+
+@media screen and (max-width: 1024px) {
+    header .max-width {
+        max-width: 100%;
+        padding: 0
+    }
+    .header {
+        display: block
+    }
+    .header-title {
+        display: inline-block;
+        padding: 1.56rem 2rem
+    }
+    #menu-toggler {
+        display: block
+    }
+    #navigation {
+        display: none
+    }
+    #navigation.active {
+        display: block
+    }
+    nav ul {
+        background: var(--background-custom-1);
+        display: block !important;
+        padding: 0;
+        padding-block: 8px
+    }
+    nav ul li {
+        padding: 0.8rem 0.7rem
+    }
+    nav ul li:last-child {
+        margin-right: 0;
+        margin-left: 20px;
+        top: 0
+    }
+    #header-content {
+        padding-inline: 25px
+    }
+    .header-button {
+        margin-inline: 25px
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .switcher-section {
+        display: block
+    }
+    .switcher-section>section:first-child {
+        /* flex: 1; */
+        width: 100%;
+        padding-right: 0
+    }
+    .switcher-section>section:last-child {
+        /* flex: 3; */
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+        padding: 0
+    }
+    .tut-cards {
+        display: block
+    }
+    .tut-cards>div {
+        max-width: 100%;
+        min-height: 120px
+    }
+    .footer-1 {
+        display: block;
+        padding: 3rem 0rem;
+        margin-bottom: 3em;
+        padding-right: 0.4rem
+    }
+    .footer-1>div:first-child {
+        padding-right: 0
+    }
+    .footer-1>div:last-child {
+        width: 100%;
+        margin-top: 1.7em
+    }
+}
