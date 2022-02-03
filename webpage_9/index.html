@@ -79,6 +79,7 @@
                             With the help of state-of-the-art deep learning models, Layout Parser enables extracting complicated document structures using only several lines of code. This method is also more robust and generalizable as no sophisticated rules are involved in this
                             process
                         </p>
+                        <img src="images/api-example.png">
                         <p class="switcher-points">
                             ▲ A set of universal APIs for performing layout detections on different types of documents.
                         </p>
@@ -88,6 +89,7 @@
                         <p>
                             To accommodate heterogenous document layout structures, Layout Parser a collection of DL models trained on different datasets. Currently the are 9 models trained on 5 diverse datasets, and they can be loaded via a unified interface.
                         </p>
+                        <img src="images/dataset-illustration.png">
                         <p class="switcher-points">
                             ▲ Exemplar images in the 5 used datasets (screenshots are taken from their papers or open-sourced datasets).
                         </p>
@@ -104,6 +106,7 @@
                             Layout Parser supports different levels of abstraction of layout data, and provide three classes of representation for layout data, namely, <code>Coordinates</code>, <code>TextBlock</code>, and <code>Layout</code>. The same
                             operations and transformations are supported inter and intra these classes to maximize the efficiency when processing the layout data.
                         </p>
+                        <img src="images/api-specification.png">
                         <div class="switcher-see">
                             <b>See Also:</b>
                             <ul>
@@ -117,6 +120,7 @@
                             Layout Parser visualizes the layout data using a simple syntax: <code>lp.draw_box</code> or <code>lp.draw_text</code> . It provides two modes for displaying the layout data: Mode I directly overlays the layout region bounding
                             boxes and categories over the original image. Mode II recreates the original document via drawing the OCR’d texts at their corresponding positions on the image canvas.
                         </p>
+                        <img src="images/viz-example.png">
                         <div class="switcher-see">
                             <b>See Also:</b>
                             <ul>
@@ -150,6 +154,7 @@
                             models (a), and users only need to select and check a small percentage of model predictions to correct or relabel (b). False-Negative Highlighter (c) helps recognize mis-identified objects from the model predictions. After
                             these steps, the full image annotation is created with less effort.
                         </p>
+                        <img src="images/labeling-ui.png">
                         <p class="switcher-points">
                             ▲ Illustration of the annotation interface with Object-Level Active Learning features. <a href="#">Learn more in this paper</a>.
                         </p>
@@ -168,6 +173,7 @@
                             on implementing the platform for practitioners to share their models and pipelines easily. By streamline the distribution of layout models, as well as promoting the reusability of layout pipelines, it can potentially transform
                             the DIA workflow and pipelines broadly.
                         </p>
+                        <a href="#"><img src="images/platform.jpeg" style="width:75%;margin:auto;"></a>
                     </div>
                     <div class="switcher-section-2">
                         <div class="video-container">
