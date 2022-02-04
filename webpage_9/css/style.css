@@ -3,6 +3,11 @@
     box-sizing: border-box
 }
 
+@font-face {
+    font-family: aesthetic;
+    src: url('/fonts/SAMAN___.TTF');
+}
+
 :root {
     --text-primary: #000;
     --text-secondary: #fff;
@@ -14,12 +19,14 @@
     --white-shade-4: #ccc;
     --text-custom-1: #333;
     --text-custom-2: #555;
-    --text-custom-3: #777;
+    --text-custom-3: #666;
     --text-custom-4: #3273dc;
     --text-custom-5: #e05151;
     --background-custom-1: #e46767;
     --background-custom-2: #e43838;
     --background-linear: linear-gradient( 141deg, #e8304f 0%, #e46767 71%, #ec8c79 100%);
+    --font-1: 'Lato', sans-serif;
+    --font-2: 'Fira Sans Extra Condensed', sans-serif;
 }
 
 html {
@@ -27,7 +34,7 @@ html {
 }
 
 body {
-    font-family: 'Lato', sans-serif
+    font-family: var(--font-1)
 }
 
 .flex {
@@ -56,7 +63,7 @@ body {
 header {
     background-image: var(--background-linear);
     box-shadow: 0px 0px 10px 5px var(--white-shade-4);
-    font-family: 'Fira Sans Extra Condensed', sans-serif
+    font-family: var(--font-2)
 }
 
 .header {
@@ -66,8 +73,9 @@ header {
 }
 
 .header-title {
+    font-family: aesthetic;
     padding: 1rem 2rem;
-    font-size: 1.8rem;
+    font-size: 2.1rem;
     font-style: italic;
     font-weight: 600;
     cursor: pointer;
@@ -136,7 +144,7 @@ header p {
 
 .header-button {
     outline: none;
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-1);
     border: 1px solid var(--text-secondary);
     background: transparent;
     color: var(--white-shade-2);
@@ -161,17 +169,25 @@ header p {
 
 /* Main Section Starts Here */
 
+main {
+    background: url('../images/design/background-1.jpg'), rgba(176, 176, 176, 0.6);
+    background-size: 20%;
+    background-blend-mode: color;
+    padding-top: 2.85em;
+    padding-bottom: 4em
+}
+
 .main-sec-head {
     margin: 2em auto;
-    margin-top: 2.85em;
-    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    margin-top: 0;
+    font-family: var(--font-1);
     text-align: center
 }
 
 .main-sec-head h1 {
-    font-family: inherit;
+    font-family: aesthetic;
     font-weight: 600;
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 0.25rem;
     color: var(--text-custom-1)
 }
@@ -190,6 +206,7 @@ header p {
 .switcher-section>section:first-child {
     /* flex: 1; */
     width: 25%;
+    background: rgba(256, 256, 256, 0.1);
     padding-right: 1.2rem
 }
 
@@ -204,7 +221,7 @@ header p {
     font-size: 0.75rem;
     margin: 15px 0;
     color: var(--text-custom-3);
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-1);
     font-weight: 500;
     letter-spacing: 1px
 }
@@ -227,7 +244,7 @@ header p {
 }
 
 .switcher-section-2 {
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-1);
     display: none
 }
 
@@ -245,8 +262,8 @@ header p {
 }
 
 .switcher-section-2 h2 {
-    font-family: 'Fira Sans Extra Condensed', sans-serif;
-    font-size: 2rem;
+    font-family: aesthetic;
+    font-size: 2.3rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
     color: var(--text-custom-1)
@@ -312,8 +329,11 @@ code {
 /* Tutorial Section Starts Here */
 
 .tut-sections {
-    margin: 4em auto;
-    margin-bottom: 6em
+    background: url('../images/design/left-side-png.png');
+    background-repeat: repeat-x;
+    background-position: center 118%;
+    margin: 0 auto;
+    padding-bottom: 6em
 }
 
 .tut-header {
@@ -324,16 +344,16 @@ code {
 }
 
 .tut-header h2 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 600;
-    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-family: aesthetic;
     color: var(--text-custom-1)
 }
 
 .tut-header h3 {
     font-size: 1.5rem;
     font-weight: normal;
-    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-family: var(--font-2);
     color: var(--text-custom-2)
 }
 
@@ -358,7 +378,7 @@ code {
 .tut-cards a {
     font-size: 1.5rem;
     color: var(--background-custom-1);
-    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-family: var(--font-2);
     text-decoration: none;
     cursor: pointer
 }
@@ -379,12 +399,31 @@ code {
 
 footer {
     box-shadow: 0px 0px 10px 2px var(--white-shade-3);
+    position: relative;
     background-color: #f5f5f5
 }
 
+.footer-image {
+    position: absolute;
+    top: 0;
+    object-fit: cover;
+}
+
+.footer-image:first-child {
+    bottom: 0;
+    top: auto;
+}
+
+.footer-image:last-child {
+    right: 0;
+    transform: rotate(180deg)
+}
+
 .footer-1 {
+    position: relative;
+    z-index: 10;
     padding: 3em 0 5.2em;
-    font-family: 'Fira Sans Extra Condensed', sans-serif
+    font-family: var(--font-2)
 }
 
 .footer-1>div:first-child {
@@ -406,14 +445,14 @@ footer {
 }
 
 .footer-heading {
-    font-family: inherit;
-    font-size: 2.5em;
+    font-family: aesthetic;
+    font-size: 2.8em;
     font-weight: 600;
     color: var(--text-custom-1)
 }
 
 .footer-question {
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-1);
     font-size: 1.24rem;
     margin: 1.5em 0;
     color: var(--text-custom-2)
@@ -435,10 +474,13 @@ footer {
 }
 
 .footer-2 {
+    position: relative;
+    z-index: 10;
     border-top: 1px solid var(--white-shade-3);
+    text-align: center;
     padding: 17px;
     font-size: 1rem;
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-1);
     font-weight: 400;
     color: var(--text-custom-2)
 }
