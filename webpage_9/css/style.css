@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: aesthetic;
-    src: url('/fonts/SAMAN___.TTF');
+    src: url('../fonts/SAMAN___.TTF');
 }
 
 :root {
