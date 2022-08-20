@@ -9,10 +9,11 @@
     --bg-shades-3: #252525;
     --text-color-1: #333;
     --text-color-2: #fff;
+
+    --scrollbar-thumb: #aaa;
 }
 
 ::-webkit-scrollbar {
-    width: 15px;
     width: 20px;
 }
 
@@ -21,16 +22,14 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: blue;
-    /* color of the scroll thumb */
     border: 5px solid transparent;
     border-radius: 100px;
-    background-color: #8070d4;
+    background-color: #fff/* #8070d4 */;
     background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--circle-3, #d4aa70);
+    background: var(--scrollbar-thumb, #d4aa70);
     background-clip: content-box;
 }
 
@@ -71,6 +70,19 @@ body {
 
 aside {
     color: #ccc;
+}
+
+aside select {
+    height: 40px;
+    width: 200px;
+    background: transparent;
+    color: var(--text-color-2);
+    border-radius: 50px;
+    text-indent: 4px;
+}
+
+aside select option {
+    color: #000;
 }
 
 h1 {
@@ -182,10 +194,10 @@ ul>li a:hover::before {
 article {
     overflow: hidden;
     border-radius: 10px;
-    /* border: 2px solid #8070d4; */
     box-shadow: -1px -2px 40px -35px #aaa;
     background-color: #13182b;
     cursor: pointer;
+    border: 1px solid #fff/*#d4aa70*/;
     transition: 0.3s ease-in-out;
 }
 
