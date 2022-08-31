@@ -9,8 +9,8 @@
     --bg-shades-3: #252525;
     --text-color-1: #333;
     --text-color-2: #fff;
-
     --scrollbar-thumb: #aaa;
+    --custom-color-1: #8070d4;
 }
 
 ::-webkit-scrollbar {
@@ -73,12 +73,15 @@ aside {
 }
 
 aside select {
-    height: 40px;
+    height: 30px;
     width: 200px;
     background: transparent;
     color: var(--text-color-2);
-    border-radius: 50px;
-    text-indent: 4px;
+    border-radius: 4px;
+    text-indent: 5px;
+    border: 0;
+    border-bottom: 2px solid var(--custom-color-1);
+    outline: none;
 }
 
 aside select option {
@@ -90,9 +93,11 @@ h1 {
     font-size: 80px;
     margin-bottom: 10px;
     margin-top: 0;
-    color: transparent;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--text-color-2);
+    /* color: #8070d4; */
+    /* color: transparent; */
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: var(--custom-color-1);
+    mix-blend-mode: color-dodge;
 }
 
 ul {
@@ -156,7 +161,7 @@ ul>li a:hover::before {
     display: grid;
     grid-template-columns: repeat(var(--card-count, auto-fit), minmax(var(--custom-width), calc(var(--custom-width) + 50px)));
     justify-content: center;
-    gap: 2em;
+    gap: 3em;
     padding: 2em;
 }
 
@@ -197,7 +202,8 @@ article {
     box-shadow: -1px -2px 40px -35px #aaa;
     background-color: #13182b;
     cursor: pointer;
-    border: 1px solid #fff/*#d4aa70*/;
+    /* border: 1px solid #fff; *//*#d4aa70*/
+    border-bottom: 2px solid var(--custom-color-1);
     transition: 0.3s ease-in-out;
 }
 
@@ -241,12 +247,28 @@ article:hover:hover .content-container {
 #pagination {
     text-align: center;
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.25rem;
+    margin-block: 2em;
+    display: flex;
+    justify-content: center;
+}
+
+#prev-button {
+    transition: all 0.2s ease-in-out;
+}
+
+#next-button {
+    transition: all 0.2s ease-in-out;
+}
+
+#pagination-count {
+    user-select: none;
 }
 
 #pagination span {
     margin-inline: 0.5rem;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
 
 #pagination span:hover {

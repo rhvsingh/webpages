@@ -1,25 +1,31 @@
 const content = document.getElementById('content')
-const pagination = document.getElementById('pagination')
+const paginationCount = document.getElementById('pagination-count')
+const prevButton = document.getElementById('prev-button')
+const nextButton = document.getElementById('next-button')
 
-var clickChange = 0,set,currentPage = 1
+var clickChange = 0,
+    set, currentPage = 1
 
 let counter = 9
 let start = 0
 let end = counter
+let numCheck = true
+
+let completePage
 
 function dataInserter(data) {
     let convertedData = `<article>
-    <a href="${data.link}/">
-        <div class="image-container">
-            <img src="images/${data.imageLink}" alt="${data.altImage}" />
-        </div>
-        <div class="content-container">${data.title}</div>
-    </a>
-</article>`
+                            <a href="${data.link}/">
+                                <div class="image-container">
+                                    <img src="images/${data.imageLink}" alt="${data.altImage}" />
+                                </div>
+                                <div class="content-container">${data.title}</div>
+                            </a>
+                        </article>`
     content.innerHTML += convertedData
 }
 
-function contentLoader(start, end,pageData) {
+function contentLoader(start, end, pageData) {
     for (let i = start; i < end && i < pageData.length; i++) {
         dataInserter(pageData[i])
     }
@@ -28,10 +34,9 @@ function contentLoader(start, end,pageData) {
 function changeView(view) {
     let postButton = document.getElementsByClassName('post-button');
     for (let i = 0; i < postButton.length; i++) {
-        if(postButton[i].getAttribute('data-id') == view ){
+        if (postButton[i].getAttribute('data-id') == view) {
             postButton[i].classList.add('active')
-        }
-        else {
+        } else {
             postButton[i].classList.remove('active')
         }
     }
@@ -40,27 +45,65 @@ function changeView(view) {
     end = view * counter
     start = end - counter
     content.innerHTML = ''
-    if(clickChange == 1) {
-        contentLoader(start, end,set)
+    if (clickChange == 1) {
+        contentLoader(start, end, set)
     } else {
-        contentLoader(start, end,dataChange)
+        contentLoader(start, end, dataChange)
+    }
+
+    if (currentPage == 1) {
+        console.log('Do nothing')
+        prevButton.style.visibility = 'hidden'
+        prevButton.style.opacity = 0
+    } else {
+        prevButton.style.visibility = 'visible'
+        prevButton.style.opacity = 1
+    }
+
+    console.log(currentPage + ' ' + completePage)
+
+    if(!numCheck) {
+        if (currentPage > completePage) {
+            nextButton.style.visibility = 'hidden'
+            nextButton.style.opacity = 0
+        } else {
+            console.log('Do nothing')
+            nextButton.style.visibility = 'visible'
+            nextButton.style.opacity = 1
+        }
+    } else {
+        if (currentPage < completePage) {
+            nextButton.style.visibility = 'visible'
+            nextButton.style.opacity = 1
+            
+        } else {
+            console.log('Do nothing')
+            
+            nextButton.style.visibility = 'hidden'
+            nextButton.style.opacity = 0
+        }
     }
 }
 
-function pagPrevButton(){
-    if(currentPage == 1) {
+function pagPrevButton() {
+    if (currentPage == 1) {
         console.log('Do nothing')
     } else {
-        changeView(currentPage-1)
+        changeView(currentPage - 1)
         console.log('Prev buttonClick')
     }
 }
-function pagNextButton(){
-    if(currentPage <= completePage) {
+
+function pagNextButton() {
+    prevButton.style.visibility = 'visible'
+    prevButton.style.opacity = 1
+    if (currentPage <= completePage) {
         console.log('Next buttonClick')
-        changeView(currentPage+1)
+        changeView(currentPage + 1)
     } else {
         console.log('Do nothing')
+        nextButton.style.visibility = 'hidden'
+        nextButton.style.opacity = 0
     }
 }
 
@@ -77,7 +120,7 @@ sort.onchange = function (e) {
             clickChange = 0
             content.innerHTML = ''
             /* dataChange.forEach(dataInserter) */
-            contentLoader(start,end,dataChange)
+            contentLoader(start, end, dataChange)
             break;
         case 'old':
             set = dataChange.slice().sort((a, b) => {
@@ -88,34 +131,41 @@ sort.onchange = function (e) {
             clickChange = 1
             content.innerHTML = ''
             /* set.forEach(dataInserter) */
-            contentLoader(start, end,set)
+            contentLoader(start, end, set)
             break;
     }
 }
 
-let completePage, remainPage
 if (pageData.length / counter && pageData.length % counter == 0) {
     completePage = pageData.length / counter
-    pagination.innerHTML = '<span onclick="pagPrevButton()">Prev..</span>'
+    numCheck = true
+    if (completePage == 1) {
+        nextButton.style.visibility = 'hidden'
+        nextButton.style.opacity = 0
+    }
     for (let i = 1; i <= completePage; i++) {
-        if(i == 1) {
-            pagination.innerHTML += `<span class='post-button active' onclick='changeView(${i})'>${i}</span>`
+        if (i == 1) {
+            paginationCount.innerHTML += `<span class='post-button active' onclick='changeView(${i})' data-id='${i}'>${i}</span>`
             continue
         }
-        pagination.innerHTML += `<span class='post-button' onclick='changeView(${i})'>${i}</span>`
+        paginationCount.innerHTML += `<span class='post-button' onclick='changeView(${i})' data-id='${i}'>${i}</span>`
     }
-    pagination.innerHTML += '<span onclick="pagNextButton()">Next..</span>'
 } else if (pageData.length % counter != 0) {
-    completePage = Math.floor(pageData.length / counter)
-    remainPage = pageData.length % counter
-    pagination.innerHTML = '<span onclick="pagPrevButton()">Prev..</span>'
+    completePage = (Math.floor(pageData.length / counter))
+    numCheck = false
+    if ((1 + completePage) == 1) {
+        nextButton.style.visibility = 'hidden'
+        nextButton.style.opacity = 0
+    }
     for (let i = 1; i <= completePage; i++) {
-        if(i == 1) {
-            pagination.innerHTML += `<span class='post-button active' onclick='changeView(${i})' data-id='${i}'>${i}</span>`
+        if (i == 1) {
+            paginationCount.innerHTML += `<span class='post-button active' onclick='changeView(${i})' data-id='${i}'>${i}</span>`
             continue
         }
-        pagination.innerHTML += `<span class='post-button' onclick='changeView(${i})' data-id='${i}'>${i}</span>`
+        paginationCount.innerHTML += `<span class='post-button' onclick='changeView(${i})' data-id='${i}'>${i}</span>`
     }
-    pagination.innerHTML += `<span class='post-button' onclick='changeView(${completePage+1})' data-id='${completePage+1}'>${completePage+1}</span>`
-    pagination.innerHTML += '<span onclick="pagNextButton()">Next..</span>'
+    paginationCount.innerHTML += `<span class='post-button' onclick='changeView(${completePage+1})' data-id='${completePage+1}'>${completePage+1}</span>`
 }
+
+prevButton.style.visibility = 'hidden'
+prevButton.style.opacity = 0
