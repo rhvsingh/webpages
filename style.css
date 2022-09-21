@@ -3,14 +3,14 @@
 }
 
 :root {
-    --main-bg-color: #000;
+    /* --main-bg-color: #000;
     --bg-shades-1: #151515;
     --bg-shades-2: #222;
     --bg-shades-3: #252525;
     --text-color-1: #333;
     --text-color-2: #fff;
     --scrollbar-thumb: #aaa;
-    --custom-color-1: #8070d4;
+    --custom-color-1: #8070d4; */
 }
 
 ::-webkit-scrollbar {
@@ -18,19 +18,50 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--bg-shades-1, #B8DCFF);
+    background: var(--scrollbar-track, #B8DCFF);
 }
 
 ::-webkit-scrollbar-thumb {
     border: 5px solid transparent;
     border-radius: 100px;
-    background-color: #fff/* #8070d4 */;
+    background-color: var(--scrollbar-thumb,#fff)/* #8070d4 */;
     background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--scrollbar-thumb, #d4aa70);
+    background: var(--scrollbar-thumb-hover, #d4aa70);
     background-clip: content-box;
+}
+
+body {
+    --main-bg-color: #000;
+    --bg-shades-1: #151515;
+    --bg-shades-2: #222;
+    --bg-shades-3: #252525;
+    --text-color-1: #ccc;
+    --text-color-2: #aaa;
+    --scrollbar-track: var(--main-bg-color);
+    --scrollbar-thumb: #fff;
+    --scrollbar-thumb-hover: #aaa;
+    --custom-color-1: #8070d4;
+    --box-shadow-artcle: #aaa;
+    --bg-color-artcle: #13182b;
+}
+
+body.light {
+    --main-bg-color: #ddd;
+    --bg-shades-1: #ccc;
+    --bg-shades-2: #bbb;
+    --bg-shades-3: #aaa;
+    --text-color-1: #000;
+    --text-color-2: #333;
+    --scrollbar-track: var(--main-bg-color);
+    --scrollbar-thumb: #333;
+    --scrollbar-thumb-hover: #000;
+    --custom-color-1: #8070d4;
+    --box-shadow-artcle: #333;
+    --bg-color-artcle: #aaa;
+    background: var(--main-bg-color);
 }
 
 body {
@@ -70,6 +101,9 @@ body {
 
 aside {
     color: #ccc;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
 }
 
 aside select {
@@ -88,6 +122,116 @@ aside select option {
     color: #000;
 }
 
+#select-drop {
+    --padding: 0.8em;
+    --height: 2em;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-right: 2em;
+    padding-left: var(--padding);
+    min-width: 200px;
+    height: var(--height,2em);
+    /* background-color: #6BBBFF; */
+    border-radius: 20px;
+    border: 2px solid transparent;
+    border-bottom-color: var(--custom-color-1);
+    transition: 0.3s ease-in-out
+}
+
+#select-drop * {
+    user-select: none;
+}
+
+#select-drop.active-drop {
+    border-color: var(--custom-color-1);/* #6BBBFF */
+    background-color: transparent;
+}
+
+#select-drop>.drop-toggle {
+    position: absolute;
+    inset: auto 0;
+    top: 110%;
+    background-color: transparent;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 5;
+    transition: 0.1s ease-in-out;
+}
+
+#select-drop.active-drop>.drop-toggle {
+    opacity: 1;
+    visibility: visible;
+}
+
+#select-drop::after {
+    content: '▾';
+    color: var(--text-color-2);
+    position: absolute;
+    right: 0.4em;
+    top: 54%;
+    transform: translateY(-54%);
+    font-size: 20px;
+}
+
+#select-drop.active-drop::after {
+    content: '▴';
+}
+
+#show-selected-drop {
+    color: var(--text-color-2);
+}
+
+.drop-options {
+    height: var(--height,30px);
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+    border-top: 0;
+    color: #151515;
+    background-color: var(--text-color-2);
+    border-radius: 50px;
+    padding-left: var(--padding);
+    transition: 0.3s ease-in-out
+}
+
+.drop-options:hover {
+    background-color: orange;
+    color: var(--text-color-2)
+}
+
+.drop-options.active-drop {
+    background-color: orange;
+}
+
+.theme-switcher {
+    --height: 30px;
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    height: var(--height);
+    width: 60px;
+    border-radius: 50px;
+    /* background-color: #8070d4; */
+    border: 2px groove var(--text-color-2)
+}
+
+#switcher-button {
+    width: calc(var(--height) - 5px);
+    height: calc(var(--height) - 5px);
+    border-radius: 50%;
+    background-color: #5D9FFF;
+    margin-left: 1px;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 0px #aaa
+}
+
+#switcher-button.light {
+    margin-left: auto;
+    margin-right: 1px;
+}
+
+
 h1 {
     text-align: center;
     font-size: 80px;
@@ -98,6 +242,11 @@ h1 {
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: var(--custom-color-1);
     mix-blend-mode: color-dodge;
+}
+
+body.light h1 {
+    mix-blend-mode: normal;
+    color: transparent;
 }
 
 ul {
@@ -199,8 +348,8 @@ ul>li a:hover::before {
 article {
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: -1px -2px 40px -35px #aaa;
-    background-color: #13182b;
+    box-shadow: -1px -2px 40px -35px var(--box-shadow-artcle);
+    background-color: var(--bg-color-artcle);
     cursor: pointer;
     /* border: 1px solid #fff; *//*#d4aa70*/
     border-bottom: 2px solid var(--custom-color-1);
@@ -226,55 +375,52 @@ article img {
 }
 
 .content-container {
-    color: #ccc;
+    color: var(--text-color-1);
     margin: 1em auto;
     text-align: center;
-    transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out
 }
 
 article:hover {
-    box-shadow: -1px -4px 30px -15px #aaa;
+    box-shadow: -1px -4px 30px -15px var(--box-shadow-artcle)
 }
 
 article:hover img {
-    transform: scale(1.1);
+    transform: scale(1.1)
 }
 
-article:hover:hover .content-container {
-    color: #5D9FFF
+article:hover .content-container {
+    color: var(--custom-color-1)
 }
 
 #pagination {
     text-align: center;
-    color: #fff;
+    color: var(--text-color-1);
     font-size: 1.25rem;
     margin-block: 2em;
     display: flex;
-    justify-content: center;
+    justify-content: center
 }
 
-#prev-button {
-    transition: all 0.2s ease-in-out;
-}
-
+#prev-button,
 #next-button {
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out
 }
 
 #pagination-count {
-    user-select: none;
+    user-select: none
 }
 
 #pagination span {
     margin-inline: 0.5rem;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out
 }
 
 #pagination span:hover {
-    color: #8070d4;
+    color: var(--custom-color-1)
 }
 
 .active {
-    color: #8070d4;
+    color: var(--custom-color-1)
 }

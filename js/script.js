@@ -169,3 +169,73 @@ if (pageData.length / counter && pageData.length % counter == 0) {
 
 prevButton.style.visibility = 'hidden'
 prevButton.style.opacity = 0
+
+
+
+/* Drop-down */
+
+const dropDown = document.getElementById('select-drop')
+const dropOptions = document.getElementsByClassName('drop-options')
+const showSelectedDrop = document.getElementById('show-selected-drop')
+const dropToggle = document.getElementsByClassName('drop-toggle')[0]
+
+let onChangeChecker = 0
+
+dropOptions[0].classList.add('active-drop')
+showSelectedDrop.innerHTML = dropOptions[0].innerHTML
+showSelectedDrop.setAttribute('value',dropOptions[0].getAttribute('value'))
+
+dropDown.onclick = (e) => {
+    if(dropDown.classList.toggle('active-drop')){
+        console.log('add')
+    } else {
+        console.log('remove')
+    }
+    identify(e)
+}
+
+//dropDown.addEventListener('',)
+
+//dropDown.addEventListener('click', identify, false);
+
+function identify(e) {
+  for (let i = 0; i < dropOptions.length; i++) {
+    if (dropOptions[i] === e.target) {
+        if (onChangeChecker == i) {
+            continue
+        } else {
+            onChangeChecker = i
+            console.log(i);
+            showSelectedDrop.innerHTML = dropOptions[i].innerHTML
+            showSelectedDrop.setAttribute('value',dropOptions[i].getAttribute('value'))
+            switch (e.target.getAttribute('value')) {
+                case 'recent':
+                    clickChange = 0
+                    content.innerHTML = ''
+                    /* dataChange.forEach(dataInserter) */
+                    contentLoader(start, end, dataChange)
+                    break;
+                case 'old':
+                    set = dataChange.slice().sort((a, b) => {
+                        let date1 = new Date(a.date)
+                        let date2 = new Date(b.date)
+                        return date1 - date2
+                    })
+                    clickChange = 1
+                    content.innerHTML = ''
+                    /* set.forEach(dataInserter) */
+                    contentLoader(start, end, set)
+                    break;
+            }
+        }
+        
+    }
+  }
+}
+
+dropToggle.addEventListener('mouseover', function(e){
+    for(let i = 0; i < dropOptions.length; i++) {
+        dropOptions[i].classList.remove('active-drop')
+    }
+    e.target.classList.add('active-drop')
+})

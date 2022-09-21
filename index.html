@@ -12,12 +12,24 @@
 <body>
     <h1>Welcome</h1>
     <aside>
-        Order: 
+        Order:
         <select id="sort">
             <option value="recent">Recently Added</option>
             <option value="old">Old to New</option>
         </select>
+        <div id="select-drop">
+            <div id="show-selected-drop"></div>
+            <div class="drop-toggle">
+                <div class="drop-options" value="recent">Recently Added</div>
+                <div class="drop-options" value="old">Old to New</div>
+                <div class="drop-options" value="random">Random</div>
+            </div>
+
+        </div>
     </aside>
+    <div class="theme-switcher">
+        <div id="switcher-button" onclick="switchTheme()"></div>
+    </div>
     <main>
         <section id="content">
         </section>
@@ -38,6 +50,21 @@
         <li><a href="webpage_9/">Clone of Layout Parser</a></li>
         <li><a href="webpage_10/">Clone of Bootstrap Template</a></li>
     </ul> -->
+    <script>
+        let switchButton = document.getElementById('switcher-button')
+        let bodyChange = document.getElementsByTagName('body')[0]
+        function themeLoader() {
+            if (localStorage.getItem('lightMode') === 'true') {
+                switchButton.classList.toggle('light')
+                bodyChange.classList.toggle('light')
+            }
+        }
+        themeLoader()
+        function switchTheme() {
+            switchButton.classList.toggle('light')
+            localStorage.setItem("lightMode", bodyChange.classList.toggle('light'));
+        }
+    </script>
     <script src="js/pageData.js"></script>
     <script src="js/script.js"></script>
 </body>
