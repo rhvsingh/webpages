@@ -13,8 +13,8 @@ const pageData = [{
 },{
     link:'https://rakshit234.github.io/Portfolio',
     imageLink: 'Rakshit_Bhaiya_Portfolio.webp',
-    altImage: 'Rakshit Bhaiya Portfolio',
-    title: 'Rakshit Bhaiya Portfolio',
+    altImage: 'Portfolio',
+    title: 'Portfolio',
     date: '12/01/2021'
 },{
     link:'webpage_7',

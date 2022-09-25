@@ -307,7 +307,7 @@ ul>li a:hover::before {
 #content {
     --card-count: 3;
     --custom-width: 400px;
-    --custom-height: 250px;
+    --custom-height: 300px;
     display: grid;
     grid-template-columns: repeat(var(--card-count, auto-fit), minmax(var(--custom-width), calc(var(--custom-width) + 50px)));
     justify-content: center;
@@ -355,6 +355,7 @@ article {
     /* border: 1px solid #fff; *//*#d4aa70*/
     border-bottom: 2px solid var(--custom-color-1);
     transition: 0.3s ease-in-out;
+    position: relative;
 }
 
 article a {
@@ -376,9 +377,16 @@ article img {
 }
 
 .content-container {
+    position: absolute;
+    bottom: 0;
     color: var(--text-color-1);
-    margin: 1em auto;
+    padding: 1em 0;
     text-align: center;
+    border-radius: 15px 15px 0px 0px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--bg-color-artcle);
     transition: 0.3s ease-in-out
 }
 
