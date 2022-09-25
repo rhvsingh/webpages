@@ -100,7 +100,7 @@ body {
 }
 
 aside {
-    color: #ccc;
+    color: var(--text-color-2);
     display: flex;
     align-items: center;
     gap: 0.5em;
@@ -125,7 +125,8 @@ aside select option {
 #select-drop {
     --padding: 0.8em;
     --height: 2em;
-    display: flex;
+    /* display: flex; */
+    display: none;
     align-items: center;
     position: relative;
     padding-right: 2em;
