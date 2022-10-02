@@ -214,22 +214,25 @@ aside select option {
     width: 60px;
     border-radius: 50px;
     /* background-color: #8070d4; */
-    border: 2px groove var(--text-color-2)
+    cursor: pointer;
+    border: 2px groove var(--custom-color-1)
 }
 
 #switcher-button {
-    width: calc(var(--height) - 5px);
-    height: calc(var(--height) - 5px);
+    width: calc(var(--height) - 6px);
+    height: calc(var(--height) - 6px);
     border-radius: 50%;
-    background-color: #5D9FFF;
-    margin-left: 1px;
-    cursor: pointer;
-    box-shadow: 0px 0px 5px 0px #aaa
+    margin-top: 1px;
+    transform: translateX(9px);
+    transition: all 0.3s linear;
+    box-shadow: -5px 0 0 0 var(--custom-color-1)
 }
 
 #switcher-button.light {
-    margin-left: auto;
-    margin-right: 1px;
+    transform: translateX(30px);
+    border-radius: 50%;
+    background-color: var(--custom-color-1);
+    box-shadow: 0 0 0 0 var(--custom-color-1)
 }
 
 
@@ -238,8 +241,6 @@ h1 {
     font-size: 80px;
     margin-bottom: 10px;
     margin-top: 0;
-    /* color: #8070d4; */
-    /* color: transparent; */
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: var(--custom-color-1);
     mix-blend-mode: color-dodge;
