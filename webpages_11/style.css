@@ -1,0 +1,230 @@
+* {
+    box-sizing: border-box
+}
+
+img {
+    display: block;
+    max-width: 100%
+}
+
+html,
+body {
+    margin: 0;
+    background-color: #fafafa;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 0px 4px #ccc;
+    position: relative
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #a7a7a7;
+    font-weight: normal;
+    font-style: italic;
+    padding: 0.5rem 0
+}
+
+header .fa {
+    position: absolute;
+    left: 2rem;
+    top: 0.25rem;
+    font-size: 2rem;
+    color: #707070
+}
+
+.image-selector {
+    border-radius: 8px;
+    border: 1px solid #c0c0c0;
+    padding: 1rem 0;
+    margin: 1rem;
+    text-align: center
+}
+
+.image-selector h2 {
+    font-style: italic;
+    color: #c0c0c0;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin: 0;
+    margin-bottom: 0.5rem
+}
+
+.image-selector>div {
+    margin-top: 1rem
+}
+
+.image-label {
+    cursor: pointer;
+    background-color: #008178;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 4px
+}
+
+#image {
+    display: none
+}
+
+#image-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+    /* visibility: hidden; */
+    /* opacity: 0; */
+    
+}
+
+#image-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6)
+}
+
+.image-show-container {
+    position: relative;
+    background-color: #fff;
+    z-index: 1;
+    text-align: center;
+    padding: 0.5rem
+}
+
+.image-show-container>h3 {
+    margin-top: 2rem;
+    color: #a7a7a7;
+    font-style: italic;
+    font-weight: 500
+}
+
+#modal-closer {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    border-radius: 50px;
+    background-color: #858585;
+    color: #fff;
+    padding: 0.25rem 0.45rem;
+    cursor: pointer
+}
+
+.image-show-container ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none
+}
+
+.image-show-container ul li {
+    border: 1px solid #ccc;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #757575;
+    padding: 0.25rem;
+    border-radius: 8px;
+    margin: 0 0.15rem
+}
+
+.image-show-container ul li:not(:has(img)) {
+    padding: 1rem 0.8rem
+}
+
+.image-show-container ul img {
+    max-width: clamp(25px, 5vw, 100px)
+}
+
+.modal-radio {
+    display: none
+}
+
+#image-modal-show {
+    margin: 0.25rem;
+    overflow: hidden
+}
+
+#image-modal-show img {
+    margin: auto
+}
+
+#image-show {
+    padding: 2rem;
+    max-width: 500px;
+    margin: auto;
+    text-align: center
+}
+
+#image-show:has(img) img {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center
+}
+
+.image-show-container:has(.modal-radio#modal-image-original:checked) #image-modal-show img {
+    width: auto;
+    height: auto;
+    transform: scale(1)
+}
+
+.image-show-container:has(.modal-radio:checked) #image-modal-show img {
+    transform: scale(1.4 , 1);
+    /* -webkit-mask-image: url('asset/user_image_frame_1.png');
+    mask-image: url('asset/user_image_frame_1.png'); */
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center
+}
+
+#mycanvas {
+    display: block;
+    max-width: 500px !important;
+    max-height: 500px;
+    margin: auto
+}
+
+.image-show-container:has(.modal-radio#modal-image-original:checked) #mycanvas {
+    width: auto;
+    height: auto;
+    transform: scale(1);
+}
+
+.image-show-container:has(.modal-radio:checked) #mycanvas {
+    transform: scale(1.4 , 1);
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center
+}
+
+#image-use-button {
+    width: 95%;
+    margin-inline: auto;
+    margin-block: 0.5rem;
+    outline: none;
+    border: 0;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    background-color: #088178;
+    cursor: pointer
+}

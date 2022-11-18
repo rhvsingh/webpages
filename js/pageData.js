@@ -1,4 +1,10 @@
 const pageData = [{
+    link:'webpage_11',
+    imageLink: 'Celebrare_Assignment.webp',
+    altImage: 'Celebrare Assignment',
+    title: 'Celebrare Assignment Image',
+    date: '11/19/2022'
+},{
     link:'webpage_10',
     imageLink: 'Clone_of_Bootstrap_Template.webp',
     altImage: 'Clone of Bootstrap Template',

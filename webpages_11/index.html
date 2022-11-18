@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        <h1>Add Image / Icon</h1>
+    </header>
+    <section>
+        <main class="image-selector">
+            <h2>Upload Image</h2>
+            <div>
+                <label class="image-label" for="image">
+                    Choose from Device
+                    <input type="file" name="image" id="image">
+                </label>
+            </div>
+        </main>
+    </section>
+    <section id="image-show"></section>
+    <section id="image-modal">
+        <div id="image-modal-overlay"></div>
+        <div class="image-show-container">
+            <div id="modal-closer" onclick="modalClose()"><i class="fa fa-times"></i></div>
+            <h3>Uploaded Image</h3>
+            <div id="image-modal-show">
+                <canvas id="mycanvas" ></canvas>
+            </div>
+            <ul>
+                <li>
+                    <label for="modal-image-original">
+                        Original
+                    </label>
+                    <input type="radio" name="effectSelector" class="modal-radio" id="modal-image-original">
+                </li>
+                <li>
+                    <label for="modal-image-heart">
+                        <img src="asset/user_image_frame_1.png" alt="Heart">
+                    </label>
+                    <input type="radio" name="effectSelector" class="modal-radio" id="modal-image-heart">
+                </li>
+                <li>
+                    <label for="modal-image-square">
+                        <img src="asset/user_image_frame_2.png" alt="Square">
+                    </label>
+                    <input type="radio" name="effectSelector" class="modal-radio" id="modal-image-square">
+                </li>
+                <li>
+                    <label for="modal-image-circle">
+                        <img src="asset/user_image_frame_3.png" alt="Circle">
+                    </label>
+                    <input type="radio" name="effectSelector" class="modal-radio" id="modal-image-circle">
+                </li>
+                <li>
+                    <label for="modal-image-rectangle">
+                        <img src="asset/user_image_frame_4.png" alt="Rectangle">
+                    </label>
+                    <input type="radio" name="effectSelector" class="modal-radio" id="modal-image-rectangle">
+                </li>
+            </ul>
+            <button id="image-use-button">Use this image</button>
+        </div>
+    </section>
+    <script src="script.js" type="text/javascript"></script>
+</body>
+
+</html>
