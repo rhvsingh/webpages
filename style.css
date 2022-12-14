@@ -3,14 +3,14 @@
 }
 
 :root {
-    /* --main-bg-color: #000;
+    --main-bg-color: #000;
     --bg-shades-1: #151515;
     --bg-shades-2: #222;
     --bg-shades-3: #252525;
     --text-color-1: #333;
     --text-color-2: #fff;
     --scrollbar-thumb: #aaa;
-    --custom-color-1: #8070d4; */
+    --custom-color-1: #8070d4;
 }
 
 ::-webkit-scrollbar {
