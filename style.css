@@ -24,7 +24,9 @@
 ::-webkit-scrollbar-thumb {
     border: 5px solid transparent;
     border-radius: 100px;
-    background-color: var(--scrollbar-thumb,#fff)/* #8070d4 */;
+    background-color: var(--scrollbar-thumb, #fff)
+        /* #8070d4 */
+    ;
     background-clip: content-box;
 }
 
@@ -103,7 +105,7 @@ aside {
     color: var(--text-color-2);
     display: flex;
     align-items: center;
-    gap: 0.5em;
+    gap: 0.5em
 }
 
 aside select {
@@ -114,12 +116,13 @@ aside select {
     border-radius: 4px;
     text-indent: 5px;
     border: 0;
+    border: 2px solid transparent;
     border-bottom: 2px solid var(--custom-color-1);
-    outline: none;
+    outline: none
 }
 
 aside select option {
-    color: #000;
+    color: #000
 }
 
 #select-drop {
@@ -132,7 +135,7 @@ aside select option {
     padding-right: 2em;
     padding-left: var(--padding);
     min-width: 200px;
-    height: var(--height,2em);
+    height: var(--height, 2em);
     /* background-color: #6BBBFF; */
     border-radius: 20px;
     border: 2px solid transparent;
@@ -145,7 +148,8 @@ aside select option {
 }
 
 #select-drop.active-drop {
-    border-color: var(--custom-color-1);/* #6BBBFF */
+    border-color: var(--custom-color-1);
+    /* #6BBBFF */
     background-color: transparent;
 }
 
@@ -184,7 +188,7 @@ aside select option {
 }
 
 .drop-options {
-    height: var(--height,30px);
+    height: var(--height, 30px);
     display: flex;
     align-items: center;
     border: 1px solid red;
@@ -353,7 +357,9 @@ article {
     box-shadow: -1px -2px 40px -35px var(--box-shadow-artcle);
     background-color: var(--bg-color-artcle);
     cursor: pointer;
-    /* border: 1px solid #fff; *//*#d4aa70*/
+    /* border: 1px solid #fff; */
+    /*#d4aa70*/
+    border: 2px solid transparent;
     border-bottom: 2px solid var(--custom-color-1);
     transition: 0.3s ease-in-out;
     position: relative;
@@ -381,14 +387,19 @@ article img {
     position: absolute;
     bottom: 0;
     color: var(--text-color-1);
-    padding: 1em 0;
-    text-align: center;
+    padding: 1em;
+    padding-bottom: 0;
     border-radius: 15px 15px 0px 0px;
     left: 0;
     right: 0;
     width: 100%;
-    background-color: var(--bg-color-artcle);
+    background: var(--bg-color-artcle);
     transition: 0.3s ease-in-out
+}
+
+.content-container.data {
+    translate: 0 50%;
+    padding-bottom: 1em
 }
 
 article:hover {
@@ -399,8 +410,51 @@ article:hover img {
     transform: scale(1.1)
 }
 
-article:hover .content-container {
-    color: var(--custom-color-1)
+article:hover .content-container.data,
+article:focus-within .content-container.data,
+article:active .content-container.data {
+    transition-delay: 0.3s;
+    translate: 0 0;
+}
+
+.content-description {
+    font-size: 0.85rem;
+    line-height: 125%;
+}
+
+.content-title {
+    display: block;
+    position: relative;
+    margin-inline: auto;
+    max-width: max-content;
+    margin-bottom: 1em;
+}
+
+.content-title::before {
+    position: absolute;
+    content: '';
+    width: 0%;
+    inset: 0;
+    top: 100%;
+    height: 2px;
+    background-color: var(--custom-color-1);
+    transition: 0.5s ease-in-out;
+    border-radius: 10px
+}
+
+article:hover .content-container.data .content-title,
+article:focus-within .content-container.data .content-title,
+article:active .content-container.data .content-title {
+    transition-delay: 0.3s;
+    margin-inline: 0;
+    font-size: 1.15rem
+}
+
+article:hover .content-container.data .content-title::before,
+article:focus-within .content-container.data .content-title::before,
+article:active .content-container.data .content-title::before {
+    transition-delay: 0.5s;
+    width: 105%
 }
 
 #pagination {
