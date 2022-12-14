@@ -1,4 +1,32 @@
 const pageData = [{
+    link:'https://first-react-app-rhvsingh.vercel.app/quizapp',
+    imageLink: 'Quiz_App.webp',
+    altImage: 'Quiz App',
+    title: 'Quiz App',
+    desc: '',
+    date: '12/03/2022'
+},{
+    link:'https://first-react-app-rhvsingh.vercel.app/tenzies',
+    imageLink: 'Tenzies_Game.webp',
+    altImage: 'Tenzies Game',
+    title: 'Tenzies Game',
+    desc: '',
+    date: '11/30/2022'
+},{
+    link:'https://first-react-app-rhvsingh.vercel.app/notes',
+    imageLink: 'Notes_App.webp',
+    altImage: 'Notes App',
+    title: 'Notes App',
+    desc: '',
+    date: '11/28/2022'
+},{
+    link:'https://first-react-app-rhvsingh.vercel.app/',
+    imageLink: 'Task_Tracker.webp',
+    altImage: 'Task Tracker',
+    title: 'Task Tracker',
+    desc: '',
+    date: '11/25/2022'
+},{
     link:'https://rhvsingh.github.io/intern-putatoe',
     imageLink: 'Intern-Putatoe.webp',
     altImage: 'Intern Putatoe',
