@@ -1,0 +1,278 @@
+* {
+    box-sizing: border-box
+}
+
+:root {
+    --white-color-f: #fff;
+    --white-color-e: #eee;
+    --white-color-c: #ccc;
+    --white-color-a: #aaa;
+    --black-color-0: #000;
+    --black-color-1: #111;
+    --black-color-2: #222;
+    --black-color-3: #333;
+    --black-color-4: #444;
+    --black-color-5: #555;
+    --black-color-7: #777;
+    --black-color-9: #999;
+
+    --bg-color-1: #202124;
+    --bg-color-2: #171717;
+}
+
+html,
+body {
+    background-color: var(--bg-color-1, --black-color-3);
+    margin: 0;
+    font-family: arial, sans-serif;
+    color: var(--black-color-9);
+    min-height: 100vh
+}
+
+.max-width {
+    max-width: 800px;
+    margin: auto;
+    text-align: center
+}
+
+.d-flex {
+    display: flex
+}
+
+.justify-end {
+    justify-content: flex-end
+}
+
+.justify-center {
+    justify-content: center
+}
+
+.justify-between {
+    justify-content: space-between
+}
+
+.align-items-center {
+    align-items: center
+}
+
+.flex-column {
+    flex-direction: column
+}
+
+.gap-25 {
+    gap: 0.25rem
+}
+
+.gap-50 {
+    gap: 0.50rem
+}
+
+.gap-75 {
+    gap: 0.75rem
+}
+
+.gap-1 {
+    gap: 1rem
+}
+
+.gap-2 {
+    gap: 2rem
+}
+
+/* Navigation */
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-block: 0.72rem;
+    padding-right: 1rem
+}
+
+nav ul li a {
+    margin-inline: 0.2rem;
+    font-size: 0.8rem;
+    color: #fff;
+    text-decoration: none
+}
+
+nav ul li a:hover {
+    text-decoration: underline
+}
+
+nav ul li[role="apps"] {
+    padding: 0.5rem 0.5rem 0.3rem 0.5rem;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+    color: #fff;
+}
+
+nav ul li[role="apps"]:hover {
+    background-color: #2f3034;
+}
+
+nav ul li[role="button"] {
+    font-size: 0.8rem;
+    padding: 0.64rem 1.58rem;
+    background-color: #90b8f5;
+    border-radius: 4px;
+    color: #000;
+    cursor: pointer;
+    letter-spacing: 1px
+}
+
+/* Main Section */
+
+.input {
+    position: relative;
+    margin: 1rem auto;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--black-color-5);
+    border-radius: 50px;
+    padding-inline: 0.8rem;
+    outline: none;
+    color: var(--white-color-c);
+}
+
+.input input {
+    text-indent: 0.5rem;
+    padding-block: 0.5rem;
+    margin-block: 0.4rem;
+    color: var(--white-color-c);
+    font-size: 1rem;
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    margin-right: 1rem;
+    border: none
+}
+
+.input input:valid {
+    border-right: 1px solid var(--black-color-5)
+}
+
+.input input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    position: relative;
+    right: 10px;
+    height: 1.5rem;
+    width: 1.5rem;
+    background: url(times.svg) no-repeat 50% 50%;
+    background-size: cover;
+    fill: #555;
+    opacity: 1;
+    pointer-events: all;
+    cursor: pointer
+}
+
+.input:focus,
+.input:hover {
+    border-color: #303134;
+    background-color: #303134;
+    box-shadow: 0 0 3px 0 var(--black-color-2)
+}
+
+.icons {
+    --icon-width: 25px
+}
+
+.search-icon {
+    
+    width: var(--icon-width);
+    fill: var(--black-color-9)
+}
+
+.mic {
+    cursor: pointer;
+    width: var(--icon-width)
+}
+
+.camera {
+    width: var(--icon-width);
+    cursor: pointer;
+    display: block
+}
+
+.search-buttons {
+    margin-block: 2rem
+}
+
+.search-buttons button {
+    outline: none;
+    border: 0;
+    background: #303134;
+    color: var(--white-color-f);
+    padding: 0.5rem 1.25rem;
+    margin-inline: 0.25rem;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    cursor: pointer
+}
+
+.search-buttons button:hover {
+    border-color: var(--black-color-5);
+}
+
+.languages ul {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+.languages li {
+    font-size: 0.8rem;
+    color: var(--white-color-a);
+}
+
+.languages a {
+    color: #8ab4f8;
+    text-decoration: none
+}
+
+.languages a:hover {
+    text-decoration: underline
+}
+
+/* Footer Section */
+
+footer {
+    background-color: var(--bg-color-2);
+    font-size: 0.85rem
+}
+
+.footer-1 {
+    border-bottom: 1px solid var(--black-color-4);
+    font-size: 1rem;
+    padding: 1rem 2rem
+}
+
+.footer-2 {
+    padding: 1rem 2rem
+}
+
+.footer-2 ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+@media screen and (max-width: 720px) {
+    .languages ul {
+        flex-wrap: wrap
+    }
+    .footer-2 {
+        display: block
+    }
+
+    .footer-2> div:first-child {
+        margin-bottom: 1rem
+    }
+
+    .footer-2 ul {
+        flex-wrap: wrap
+    }
+}
