@@ -2,17 +2,6 @@
     box-sizing: border-box;
 }
 
-:root {
-    --main-bg-color: #000;
-    --bg-shades-1: #151515;
-    --bg-shades-2: #222;
-    --bg-shades-3: #252525;
-    --text-color-1: #333;
-    --text-color-2: #fff;
-    --scrollbar-thumb: #aaa;
-    --custom-color-1: #8070d4;
-}
-
 ::-webkit-scrollbar {
     width: 20px;
 }
@@ -47,7 +36,7 @@ body {
     --scrollbar-thumb-hover: #aaa;
     --custom-color-1: #8070d4;
     --box-shadow-artcle: #aaa;
-    --bg-color-artcle: #13182b;
+    --bg-color-artcle: rgba(19, 24, 43,0.9);
 }
 
 body.light {
@@ -62,7 +51,7 @@ body.light {
     --scrollbar-thumb-hover: #000;
     --custom-color-1: #8070d4;
     --box-shadow-artcle: #333;
-    --bg-color-artcle: #aaa;
+    --bg-color-artcle: rgba(170, 170, 170,0.5);
     background: var(--main-bg-color);
 }
 
@@ -285,15 +274,15 @@ ul>li a::before {
     border-radius: 4px;
     border: 1px solid #555;
     bottom: -8px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out
 }
 
 ul>li a:hover {
-    color: #ccc;
+    color: #ccc
 }
 
 ul>li a:hover::before {
-    background-color: #ccc;
+    background-color: #ccc
 }
 
 @media screen and (max-width: 525px) {
@@ -305,7 +294,7 @@ ul>li a:hover::before {
     ul>li a {
         -webkit-text-stroke-width: 0.8px;
         -webkit-text-stroke-color: #777;
-        font-size: 30px;
+        font-size: 30px
     }
 }
 
@@ -317,7 +306,7 @@ ul>li a:hover::before {
     grid-template-columns: repeat(var(--card-count, auto-fit), minmax(var(--custom-width), calc(var(--custom-width) + 50px)));
     justify-content: center;
     gap: 3em;
-    padding: 2em;
+    padding: 2em
 }
 
 @media screen and (max-width: 1350px) and (min-width: 900px) {
@@ -339,7 +328,7 @@ ul>li a:hover::before {
         --card-count: 1;
         --custom-width: 300px;
         --custom-height: 200px;
-        padding: 1em;
+        padding: 1em
     }
 }
 
@@ -362,17 +351,17 @@ article {
     border: 2px solid transparent;
     border-bottom: 2px solid var(--custom-color-1);
     transition: 0.3s ease-in-out;
-    position: relative;
+    position: relative
 }
 
 article a {
-    text-decoration: none;
+    text-decoration: none
 }
 
 article .image-container {
     position: relative;
     height: var(--custom-height);
-    overflow: hidden;
+    overflow: hidden
 }
 
 article img {
@@ -380,7 +369,7 @@ article img {
     object-fit: cover;
     height: var(--custom-height);
     transition: 0.3s ease-in-out;
-    object-position: center;
+    object-position: center
 }
 
 .content-container {
@@ -399,6 +388,7 @@ article img {
 
 .content-container.data {
     translate: 0 50%;
+    background: var(--bg-color-artcle);
     padding-bottom: 1em
 }
 
@@ -414,12 +404,12 @@ article:hover .content-container.data,
 article:focus-within .content-container.data,
 article:active .content-container.data {
     transition-delay: 0.3s;
-    translate: 0 0;
+    translate: 0 0
 }
 
 .content-description {
     font-size: 0.85rem;
-    line-height: 125%;
+    line-height: 125%
 }
 
 .content-title {
@@ -427,7 +417,7 @@ article:active .content-container.data {
     position: relative;
     margin-inline: auto;
     max-width: max-content;
-    margin-bottom: 1em;
+    margin-bottom: 1em
 }
 
 .content-title::before {
