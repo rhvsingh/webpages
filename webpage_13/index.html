@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"
+        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <div>
+                <a class="navbar-brand" href="#">Tease Your Brain</a>
+                <span>Test Name</span>
+            </div>
+
+            <div class="bg-secondary-subtle px-2 py-1">
+                Time Left
+                <span class="bg-secondary text-white px-1" id="hour-left">00</span> :
+                <span class="bg-secondary text-white px-1" id="min-left">00</span> :
+                <span class="bg-secondary text-white px-1" id="sec-left">00</span>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-sm border border-info text-info rounded-1 mx-2">Switch Full Screen</button>
+                <button class="btn btn-sm border border-info text-info rounded-1 mx-2">Pause</button>
+            </div>
+        </div>
+    </nav>
+    <section class="container-fluid custom-height d-flex flex-column">
+        <div class="row flex-grow-1" style="position: relative;">
+            <div class="col-10 px-0 d-flex flex-column active-sidebar" id="main-section">
+                <div class="bg-secondary-subtle px-2 py-1"><span class="text-uppercase">Sections</span> |
+                    <div class="d-inline-block ms-5">
+                        <button class="test btn btn-sm rounded-1 text-white px-5"
+                            style="background-color: blue">Test</button>
+                    </div>
+                </div>
+                <!-- Question Number Display -->
+                <div class="d-flex justify-content-between align-items-center py-1 px-2 border">
+                    <div class="fw-medium">
+                        Question No. 1
+                    </div>
+                    <div class="d-flex justify-content-center gap-3 align-items-center" style="font-size: 0.8rem;">
+                        <div>
+                            Marks
+                            <br />
+                            <span class="bg-success text-white px-2 rounded-3"
+                                style="font-size: 0.8rem; padding-block: 0.05rem;">+2</span>
+                            <span class="bg-danger text-white px-2 rounded-3"
+                                style="font-size: 0.8rem; padding-block: 0.05rem;">-0.5</span>
+                        </div>
+                        <div>
+                            Time
+                            <br />
+                            <span style="font-size: 0.8rem;">
+                                00:00
+                            </span>
+                        </div>
+                        <div>
+                            View in
+                            <select name="language-select" id="language-select">
+                                <option value="English" checked>English</option>
+                                <option value="Hindi">Hindi</option>
+                            </select>
+                        </div>
+                        <div>⚠️ Report</div>
+                    </div>
+                </div>
+                <!--Question and MCQs -->
+                <div class="px-2 py-2 question-display-area">
+                    Select the correct option that indicates the arrangement of the given words in the order in
+                    which they appera in an English dictionary
+                    <br />
+                    <ol>
+                        <li>Petitionary</li>
+                        <li>Petitioning</li>
+                        <li>Petition</li>
+                        <li>Petitioned</li>
+                    </ol>
+                    <div>
+                        <input type="radio" name="question" value="" id="choice-1">
+                        <label for="choice-1">3, 1, 4, 5, 2</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="question" value="" id="choice-2">
+                        <label for="choice-2">3, 1, 5, 4, 2</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="question" value="" id="choice-3">
+                        <label for="choice-3">4, 1, 2, 3, 5</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="question" value="" id="choice-4">
+                        <label for="choice-4">1, 2, 3, 4, 5</label>
+                    </div>
+                </div>
+                <div
+                    class="mt-auto px-2 py-2 d-flex justify-content-between flex-wrap gap-2 bg-secondary-subtle border-top">
+                    <div>
+                        <button class="btn btn-sm border-info-subtle bg-info-subtle rounded-1">Mark for Review &
+                            Next</button>
+                        <button class="btn btn-sm border-info-subtle bg-info-subtle rounded-1">Clear Response</button>
+                    </div>
+                    <div>
+                        <button class="btn btn-sm bg-info text-white rounded-1">Save & Next</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 px-0 d-flex flex-column active-sidebar" id="sidebar"
+                style="position:relative;background-color: #d7edf6;">
+                <button class="sidebar-toggler" onclick="sidebarToggler()"><i class="fa fa-angle-right"></i></button>
+                <div class="px-3 py-2">
+                    Icon & Name
+                </div>
+                <div class="d-flex flex-wrap px-3 py-3 number-details border border-start-0 border-end-0">
+                    <div><span class="no-answered">0</span>Answered</div>
+                    <div><span class="no-marked">0</span>Marked</div>
+                    <div><span class="no-not-visited">0</span>Not Visited</div>
+                    <div><span class="no-marked-answered">0</span>Marked and answered</div>
+                    <div><span class="no-not-answered">0</span>Not Answered</div>
+                </div>
+                <!-- Number and Button Section -->
+                <div>
+                    <div class="px-2" style="background-color: #afdaec;">
+                        <span class="text-uppercase fw-bold">Section :</span> <span>Active Test</span>
+                    </div>
+                    <div class="question-buttons px-2 py-2">
+                        <button class="no-not-answered">1</button>
+                        <button class="no-answered">2</button>
+                        <button class="no-marked">3</button>
+                        <button class="no-not-visited">4</button>
+                        <button class="no-marked-answered">5</button>
+                        <button class="no-not-answered">6</button>
+                        <button>7</button>
+                        <button>8</button>
+                        <button>9</button>
+                        <button>10</button>
+                        <button>11</button>
+                        <button>12</button>
+                        <button>13</button>
+                        <button>14</button>
+                        <button>15</button>
+                        <button>16</button>
+                        <button>17</button>
+                        <button>18</button>
+                        <button>19</button>
+                        <button>20</button>
+                        <button>21</button>
+                        <button>22</button>
+                        <button>23</button>
+                        <button>24</button>
+                        <button>25</button>
+                    </div>
+                </div>
+                <div class="mt-auto px-2 py-2 bg-secondary-subtle border-top border-info-subtle">
+                    <div class="d-flex justify-content-between flex-wrap gap-2">
+                        <button class="btn btn-sm border-info-subtle bg-info-subtle flex-grow-1">Question Paper</button>
+                        <button class="btn btn-sm border-info-subtle bg-info-subtle flex-grow-1">Instructions</button>
+                    </div>
+                    <div class="mt-2">
+                        <button class="btn btn-sm border-info bg-info text-white" style="width: 100%;">Submit
+                            Test</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

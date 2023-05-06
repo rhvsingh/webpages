@@ -1,4 +1,12 @@
 const pageData = [
+	{
+    link: "webpage_13",
+    imageLink: "TeaseYourBrain.webp",
+    altImage: "Tease Your Brain",
+    title: "Tease Your Brain",
+    desc: "A clone where you can test your knowledge and see your score.",
+    date: "05/06/2023",
+  },
   {
     link: "https://first-react-app-rhvsingh.vercel.app/quizapp",
     imageLink: "Quiz_App.webp",

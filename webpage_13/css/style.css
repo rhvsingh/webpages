@@ -1,0 +1,110 @@
+.custom-height {
+    min-height: calc(100vh - 2.97rem);
+}
+
+.question-display-area > ol {
+    padding-left: 1rem;
+}
+
+.question-display-area > ol > li {
+    padding-block: 0.25rem;
+}
+
+#main-section.active-sidebar {
+}
+
+#sidebar.active-sidebar {
+}
+
+.sidebar-toggler {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -15px;
+    border: 0;
+    height: 50px;
+    width: 15px;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #fff;
+    background-color: #252525;
+    cursor: pointer;
+}
+
+.number-details > div {
+    margin-right: 0.5rem;
+    margin-top: 0.25rem;
+    font-size: 0.65rem;
+}
+
+.number-details span {
+    display: inline-block;
+    padding: 0rem 0.4rem;
+    margin-right: 0.25rem;
+    color: #fff;
+}
+
+.no-answered {
+    background-color: var(--bs-green);
+    border-radius: 50% 50% 0 0;
+}
+
+.no-marked {
+    border-radius: 50%;
+    background-color: #a156b1;
+}
+.no-not-visited {
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000 !important;
+    border-radius: 1px;
+}
+.no-marked-answered {
+    border-radius: 50px;
+    background-color: #a156b1;
+    position: relative;
+}
+.no-marked-answered::before {
+    position: absolute;
+    content: "\2713";
+    right: -0.22rem;
+    top: -0.7rem;
+    color: var(--bs-green);
+    font-weight: bolder;
+    font-size: large;
+}
+
+.no-not-answered {
+    background-color: var(--bs-red);
+    border-radius: 0 0 50% 50%;
+}
+
+.question-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30px, 35px));
+    gap: 0.8rem;
+    justify-content: space-between;
+}
+
+.question-buttons > button {
+    border: 1px solid #000;
+    height: 25px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.question-buttons > button.no-not-answered {
+    border-radius: 50px;
+    background-color: var(--bs-red);
+}
+
+.question-buttons
+    button:where(
+        .no-answered,
+        .no-marked,
+        .no-marked-answered,
+        .no-not-answered
+    ) {
+    color: #fff;
+    border: 0;
+}
