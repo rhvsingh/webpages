@@ -132,41 +132,7 @@ $(document).ready(function () {
             clearInterval(mainTimeCounter)
             clearInterval(eachTimeCounter)
 
-            let totalScore = 0
-            let totalCorrectAnswer = 0
-            let totalWrongAnswer = 0
-            let positive = data.positiveMark
-            let negative = data.negativeMark
-
-            for (let i = 0; i < data.examData.length; i++) {
-                let questions = data.examData[i].questions
-                console.log(questions)
-                for (let j = 0; j < questions.length; j++) {
-                    if (questions[j].optionSelectedClass == "no-answered") {
-                        console.log(questions[j].optionSelected, questions[j])
-                        if (
-                            questions[j].answer ==
-                            questions[j].options[
-                                parseInt(questions[j].optionSelected)
-                            ]
-                        ) {
-                            totalScore = totalScore + positive
-                            totalCorrectAnswer += 1
-                        } else {
-                            totalScore = totalScore - negative
-                            totalWrongAnswer += 1
-                        }
-                    }
-                }
-                //correct answer
-                //wrong
-            }
-
-            totalScoreContainer.innerText = totalScore
-            correctAnswerContainer.innerText = totalCorrectAnswer
-            wrongAnswerContainer.innerText = totalWrongAnswer
-
-            resultModal.show()
+            finalResult()
         }
     }
 
@@ -340,6 +306,10 @@ $(document).ready(function () {
 
     function examEndByTimeUp() {
         console.log("Exam End because of time")
+        clearInterval(mainTimeCounter)
+        clearInterval(eachTimeCounter)
+
+        finalResult()
     }
 
     function showQuetions(index) {
@@ -413,5 +383,43 @@ $(document).ready(function () {
 
         questionButtonsShow.innerHTML = questionButton
         activeTestName.innerText = data.examData[index].section
+    }
+
+    function finalResult() {
+        let totalScore = 0
+        let totalCorrectAnswer = 0
+        let totalWrongAnswer = 0
+        let positive = data.positiveMark
+        let negative = data.negativeMark
+
+        for (let i = 0; i < data.examData.length; i++) {
+            let questions = data.examData[i].questions
+            console.log(questions)
+            for (let j = 0; j < questions.length; j++) {
+                if (questions[j].optionSelectedClass == "no-answered") {
+                    console.log(questions[j].optionSelected, questions[j])
+                    if (
+                        questions[j].answer ==
+                        questions[j].options[
+                            parseInt(questions[j].optionSelected)
+                        ]
+                    ) {
+                        totalScore = totalScore + positive
+                        totalCorrectAnswer += 1
+                    } else {
+                        totalScore = totalScore - negative
+                        totalWrongAnswer += 1
+                    }
+                }
+            }
+            //correct answer
+            //wrong
+        }
+
+        totalScoreContainer.innerText = totalScore
+        correctAnswerContainer.innerText = totalCorrectAnswer
+        wrongAnswerContainer.innerText = totalWrongAnswer
+
+        resultModal.show()
     }
 })
