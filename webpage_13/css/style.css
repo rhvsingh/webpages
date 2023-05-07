@@ -13,6 +13,15 @@
 #main-section.active-sidebar {
 }
 
+#section-switcher-buttons button {
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-right: 1rem;
+    padding-inline: 1.5rem;
+}
+
 .marking-number span {
     padding-block: 0.05rem;
 }
@@ -98,8 +107,11 @@
 }
 
 .question-buttons > button.no-not-answered {
-    border-radius: 50px;
     background-color: var(--bs-red);
+}
+
+.question-buttons > button.active-button {
+    border-radius: 50px;
 }
 
 .question-buttons
