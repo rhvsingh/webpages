@@ -292,7 +292,6 @@ $(document).ready(function () {
                 eachQuestionSec.innerText = sec
             }
             if (sec > 59) {
-                console.log("seconds")
                 min++
                 eachQuestionMin.innerText = "0" + min
                 sec = 0
@@ -394,10 +393,8 @@ $(document).ready(function () {
 
         for (let i = 0; i < data.examData.length; i++) {
             let questions = data.examData[i].questions
-            console.log(questions)
             for (let j = 0; j < questions.length; j++) {
                 if (questions[j].optionSelectedClass == "no-answered") {
-                    console.log(questions[j].optionSelected, questions[j])
                     if (
                         questions[j].answer ==
                         questions[j].options[
