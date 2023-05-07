@@ -13,6 +13,10 @@
 #main-section.active-sidebar {
 }
 
+.marking-number span {
+    padding-block: 0.05rem;
+}
+
 #sidebar.active-sidebar {
 }
 
