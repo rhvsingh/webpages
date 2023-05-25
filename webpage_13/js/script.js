@@ -77,6 +77,8 @@ $(document).ready(function () {
             buttonClassValueSetter("no-marked")
         }
 
+        eachTimeClear()
+
         if (que_count < data.examData[sectionSelector].questions.length - 1) {
             //if question count is less than total question length
             que_count++ //increment the que_count value
@@ -85,6 +87,7 @@ $(document).ready(function () {
             //console.log("End of questions in this sections")
             sectionSwitcher()
         }
+
         showButtons(sectionSelector)
     }
 
@@ -116,6 +119,8 @@ $(document).ready(function () {
             buttonClassValueSetter("no-not-answered")
         }
 
+        eachTimeClear()
+
         if (que_count < data.examData[sectionSelector].questions.length - 1) {
             //if question count is less than total question length
             que_count++ //increment the que_count value
@@ -124,14 +129,14 @@ $(document).ready(function () {
             //console.log("End of questions in this sections")
             sectionSwitcher()
         }
+
         showButtons(sectionSelector)
     }
 
     submitTestButton.onclick = () => {
         if (confirm("Are you sure you want to submit?")) {
             clearInterval(mainTimeCounter)
-            clearInterval(eachTimeCounter)
-
+            eachTimeClear()
             finalResult()
         }
     }
@@ -195,6 +200,7 @@ $(document).ready(function () {
     function sectionActivator(index) {
         sectionSelector = index
         que_count = 0
+        eachTimeClear()
         showQuetions(que_count)
         showButtons(sectionSelector)
     }
@@ -207,6 +213,7 @@ $(document).ready(function () {
             sectionSelector = 0
         }
         que_count = 0
+        eachTimeClear()
         showQuetions(que_count)
         showButtons(sectionSelector)
     }
@@ -265,13 +272,27 @@ $(document).ready(function () {
         }
     }
 
-    function eachQuestionTime() {
-        let min = 00
-        let sec = 00
+    function eachTimeClear() {
+        clearInterval(eachTimeCounter)
+        eachQuestionSec.innerText = "00"
+        eachQuestionMin.innerText = "00"
+    }
 
-        buttonStart.onclick = function () {
+    function eachQuestionTime(index) {
+        let min = 0
+        let sec = 0
+
+        let timeSpent =
+            data.examData[sectionSelector].questions[index].timeSpent
+
+        min = timeSpent.min
+        sec = timeSpent.sec
+
+        eachTimeCounter = setInterval(startTimer, 1000)
+
+        /* buttonStart.onclick = function () {
             clearInterval(eachTimeCounter)
-            eachTimeCounter = setInterval(startTimer, 1000)
+            
         }
 
         buttonReset.onclick = function () {
@@ -280,7 +301,7 @@ $(document).ready(function () {
             min = "00"
             eachQuestionSec.innerText = sec
             eachQuestionMin.innerText = min
-        }
+        } */
 
         function startTimer() {
             sec++
@@ -300,6 +321,9 @@ $(document).ready(function () {
             if (min > 9) {
                 eachQuestionMin.innerText = min
             }
+
+            data.examData[sectionSelector].questions[index].timeSpent.min = min
+            data.examData[sectionSelector].questions[index].timeSpent.sec = sec
         }
     }
 
@@ -313,6 +337,8 @@ $(document).ready(function () {
 
     function showQuetions(index) {
         let questionData = data.examData[sectionSelector].questions[index]
+
+        eachQuestionTime(index)
 
         questionNumberShow.innerText = questionData.numb
 
@@ -348,8 +374,7 @@ $(document).ready(function () {
                 3 == parseInt(questionData.optionSelected) && "checked"
             } id="choice-4">
             <label for="choice-4">${questionData.options[3]}</label>
-        </div>
-        `
+        </div>`
 
         data.examData[sectionSelector].questions[index].optionSelectedClass =
             data.examData[sectionSelector].questions[index]
@@ -417,6 +442,7 @@ $(document).ready(function () {
         correctAnswerContainer.innerText = totalCorrectAnswer
         wrongAnswerContainer.innerText = totalWrongAnswer
 
+        console.log(data.examData)
         resultModal.show()
     }
 })

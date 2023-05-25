@@ -22,7 +22,10 @@ let data = {
                     ],
                     optionSelected: "",
                     optionSelectedClass: "",
-                    timeSpent: "",
+                    timeSpent: {
+                        min: 0,
+                        sec: 0,
+                    },
                 },
                 {
                     numb: 2,
@@ -36,7 +39,10 @@ let data = {
                     ],
                     optionSelected: "",
                     optionSelectedClass: "",
-                    timeSpent: "",
+                    timeSpent: {
+                        min: 0,
+                        sec: 0,
+                    },
                 },
                 {
                     numb: 3,
@@ -50,7 +56,10 @@ let data = {
                     ],
                     optionSelected: "",
                     optionSelectedClass: "",
-                    timeSpent: "",
+                    timeSpent: {
+                        min: 0,
+                        sec: 0,
+                    },
                 },
                 {
                     numb: 4,
@@ -64,7 +73,10 @@ let data = {
                     ],
                     optionSelected: "",
                     optionSelectedClass: "",
-                    timeSpent: "",
+                    timeSpent: {
+                        min: 0,
+                        sec: 0,
+                    },
                 },
                 {
                     numb: 5,
@@ -78,7 +90,10 @@ let data = {
                     ],
                     optionSelected: "",
                     optionSelectedClass: "",
-                    timeSpent: "",
+                    timeSpent: {
+                        min: 0,
+                        sec: 0,
+                    },
                 },
             ],
         },
@@ -100,7 +115,10 @@ let data = {
                     ],
                     optionSelected: "",
                     optionSelectedClass: "",
-                    timeSpent: "",
+                    timeSpent: {
+                        min: 0,
+                        sec: 0,
+                    },
                 },
                 {
                     numb: 2,
@@ -114,7 +132,10 @@ let data = {
                     ],
                     optionSelected: "",
                     optionSelectedClass: "",
-                    timeSpent: "",
+                    timeSpent: {
+                        min: 0,
+                        sec: 0,
+                    },
                 },
                 {
                     numb: 3,
@@ -128,7 +149,10 @@ let data = {
                     ],
                     optionSelected: "",
                     optionSelectedClass: "",
-                    timeSpent: "",
+                    timeSpent: {
+                        min: 0,
+                        sec: 0,
+                    },
                 },
                 {
                     numb: 4,
@@ -142,7 +166,10 @@ let data = {
                     ],
                     optionSelected: "",
                     optionSelectedClass: "",
-                    timeSpent: "",
+                    timeSpent: {
+                        min: 0,
+                        sec: 0,
+                    },
                 },
             ],
         },
