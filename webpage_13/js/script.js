@@ -30,13 +30,7 @@ $(document).ready(function () {
     const resultModal = new bootstrap.Modal(
         document.getElementById("result-modal")
     )
-    const totalScoreContainer = document.getElementById("total-score-container")
-    const correctAnswerContainer = document.getElementById(
-        "correct-answer-container"
-    )
-    const wrongAnswerContainer = document.getElementById(
-        "wrong-answer-container"
-    )
+    const resultShow = document.getElementById("result-show")
 
     let timeValue = 15
     let que_count = 0
@@ -416,10 +410,21 @@ $(document).ready(function () {
         let positive = data.positiveMark
         let negative = data.negativeMark
 
+        let formatMaker = ""
+
         for (let i = 0; i < data.examData.length; i++) {
             let questions = data.examData[i].questions
+            formatMaker += "<div> Section: " + data.examData[i].section
+            formatMaker += "<br />"
+
+            let sno = 0
             for (let j = 0; j < questions.length; j++) {
                 if (questions[j].optionSelectedClass == "no-answered") {
+                    sno++
+                    formatMaker +=
+                        `<div class='my-2'>${sno}. ` + questions[j].question
+                    formatMaker += "<br />"
+
                     if (
                         questions[j].answer ==
                         questions[j].options[
@@ -428,21 +433,47 @@ $(document).ready(function () {
                     ) {
                         totalScore = totalScore + positive
                         totalCorrectAnswer += 1
+
+                        formatMaker += "Selected answer correct"
                     } else {
                         totalScore = totalScore - negative
                         totalWrongAnswer += 1
+
+                        formatMaker += "Selected answer wrong"
                     }
+
+                    formatMaker += "<br />"
+                    formatMaker += `Time taken: ${
+                        questions[j].timeSpent.min > 9
+                            ? questions[j].timeSpent.min
+                            : "0" + questions[j].timeSpent.min
+                    }
+                            : ${
+                                questions[j].timeSpent.sec > 9
+                                    ? questions[j].timeSpent.sec
+                                    : "0" + questions[j].timeSpent.sec
+                            }`
+
+                    formatMaker += "</div>"
                 }
             }
-            //correct answer
-            //wrong
+
+            if (sno == 0) {
+                formatMaker += "No answer selected"
+            }
+
+            formatMaker += "</div>"
         }
 
-        totalScoreContainer.innerText = totalScore
-        correctAnswerContainer.innerText = totalCorrectAnswer
-        wrongAnswerContainer.innerText = totalWrongAnswer
+        resultShow.innerHTML = `
+            <p>Total Score: ${totalScore}</p>
+            <p>Total Correct Answers: ${totalCorrectAnswer}</p>
+            <p>Total Wrong Answers: ${totalWrongAnswer}</p>
+            <hr>
+            `
 
-        console.log(data.examData)
+        resultShow.innerHTML += formatMaker
+
         resultModal.show()
     }
 })
