@@ -20,6 +20,11 @@
     text-overflow: ellipsis;
     margin-right: 1rem;
     padding-inline: 1.5rem;
+    border: 2px solid transparent;
+}
+
+#section-switcher-buttons button.active-button {
+    border-color: #151515;
 }
 
 .marking-number span {
@@ -112,15 +117,10 @@
 
 .question-buttons > button.active-button {
     border-radius: 50px;
+    border: 1px solid #151515;
 }
 
-.question-buttons
-    button:where(
-        .no-answered,
-        .no-marked,
-        .no-marked-answered,
-        .no-not-answered
-    ) {
+.question-buttons button:where(.no-answered, .no-marked, .no-marked-answered, .no-not-answered) {
     color: #fff;
     border: 0;
 }

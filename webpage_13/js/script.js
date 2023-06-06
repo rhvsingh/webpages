@@ -9,12 +9,15 @@ function sidebarToggler() {
 $(document).ready(function () {
     const examName = document.getElementById("exam-name")
     const examTime = document.getElementById("exam-time")
+
+    /* Main Time Variables */
     const hourLeft = document.getElementById("hour-left")
     const minLeft = document.getElementById("min-left")
     const secLeft = document.getElementById("sec-left")
-    const sectionSwitcherButtons = document.getElementById(
-        "section-switcher-buttons"
-    )
+
+    /* Tab Switch Buttons */
+    const sectionSwitcherButtons = document.getElementById("section-switcher-buttons")
+
     const questionNumberShow = document.getElementById("question-number-show")
     const positiveMark = document.getElementById("positive-marking")
     const negativeMark = document.getElementById("negative-marking")
@@ -27,10 +30,15 @@ $(document).ready(function () {
     const activeTestName = document.getElementById("active-test-name")
     const questionButtonsShow = document.getElementById("question-buttons-show")
     const submitTestButton = document.getElementById("submit-test-button")
-    const resultModal = new bootstrap.Modal(
-        document.getElementById("result-modal")
-    )
+    const resultModal = new bootstrap.Modal(document.getElementById("result-modal"))
     const resultShow = document.getElementById("result-show")
+
+    /* Sidebar Questions Overview  */
+    const totalCountAnswered = document.getElementById("total-count-answered")
+    const totalCountMarked = document.getElementById("total-count-marked")
+    const totalCountNotVisited = document.getElementById("total-count-not-visited")
+    const totalCountMarkedAnswered = document.getElementById("total-count-marked-answered")
+    const totalCountNotAnswered = document.getElementById("total-count-not-answered")
 
     let timeValue = 15
     let que_count = 0
@@ -50,7 +58,8 @@ $(document).ready(function () {
     negativeMark.innerText = "-" + data.negativeMark
     examRunner()
 
-    $(".test").on("click", function (e) {
+    // To activate section when clicked on section button
+    $(".section-activator-button").on("click", function (e) {
         sectionActivator(parseInt(this.id))
     })
 
@@ -76,7 +85,7 @@ $(document).ready(function () {
         if (que_count < data.examData[sectionSelector].questions.length - 1) {
             //if question count is less than total question length
             que_count++ //increment the que_count value
-            showQuetions(que_count) //calling showQestions function
+            showQuestions(que_count) //calling showQestions function
         } else {
             //console.log("End of questions in this sections")
             sectionSwitcher()
@@ -118,7 +127,7 @@ $(document).ready(function () {
         if (que_count < data.examData[sectionSelector].questions.length - 1) {
             //if question count is less than total question length
             que_count++ //increment the que_count value
-            showQuetions(que_count) //calling showQestions function
+            showQuestions(que_count) //calling showQestions function
         } else {
             //console.log("End of questions in this sections")
             sectionSwitcher()
@@ -142,35 +151,20 @@ $(document).ready(function () {
         let choice4 = document.getElementById("choice-4")
 
         if (choice1.checked === true) {
-            data.examData[sectionSelector].questions[que_count].optionSelected =
-                "0"
-            data.examData[sectionSelector].questions[
-                que_count
-            ].optionSelectedClass = nameOfClass
+            data.examData[sectionSelector].questions[que_count].optionSelected = "0"
+            data.examData[sectionSelector].questions[que_count].optionSelectedClass = nameOfClass
         } else if (choice2.checked === true) {
-            data.examData[sectionSelector].questions[que_count].optionSelected =
-                "1"
-            data.examData[sectionSelector].questions[
-                que_count
-            ].optionSelectedClass = nameOfClass
+            data.examData[sectionSelector].questions[que_count].optionSelected = "1"
+            data.examData[sectionSelector].questions[que_count].optionSelectedClass = nameOfClass
         } else if (choice3.checked === true) {
-            data.examData[sectionSelector].questions[que_count].optionSelected =
-                "2"
-            data.examData[sectionSelector].questions[
-                que_count
-            ].optionSelectedClass = nameOfClass
+            data.examData[sectionSelector].questions[que_count].optionSelected = "2"
+            data.examData[sectionSelector].questions[que_count].optionSelectedClass = nameOfClass
         } else if (choice4.checked === true) {
-            data.examData[sectionSelector].questions[que_count].optionSelected =
-                "3"
-            data.examData[sectionSelector].questions[
-                que_count
-            ].optionSelectedClass = nameOfClass
+            data.examData[sectionSelector].questions[que_count].optionSelected = "3"
+            data.examData[sectionSelector].questions[que_count].optionSelectedClass = nameOfClass
         } else {
-            data.examData[sectionSelector].questions[que_count].optionSelected =
-                "None"
-            data.examData[sectionSelector].questions[
-                que_count
-            ].optionSelectedClass = nameOfClass
+            data.examData[sectionSelector].questions[que_count].optionSelected = "None"
+            data.examData[sectionSelector].questions[que_count].optionSelectedClass = nameOfClass
         }
     }
 
@@ -179,7 +173,7 @@ $(document).ready(function () {
         let createdButtons = ""
         for (let i = 0; i < dataForButton.length; i++) {
             createdButtons +=
-                '<button class="test btn btn-sm bg-primary rounded-1 text-white" title="' +
+                '<button class="section-activator-button btn btn-sm bg-primary rounded-1 text-white" title="' +
                 dataForButton[i].section +
                 '" id="' +
                 i +
@@ -189,13 +183,31 @@ $(document).ready(function () {
         }
 
         sectionSwitcherButtons.innerHTML = createdButtons
+
+        document
+            .getElementsByClassName("section-activator-button")[0]
+            .classList.add("active-button")
+    }
+
+    function sectionButtonClassChange() {
+        let sectionActivatorButton = document.getElementsByClassName("section-activator-button")
+
+        for (let i = 0; i < sectionActivatorButton.length; i++) {
+            if (sectionActivatorButton[i].classList.contains("active-button")) {
+                sectionActivatorButton[i].classList.remove("active-button")
+            }
+        }
+
+        sectionActivatorButton[sectionSelector].classList.add("active-button")
     }
 
     function sectionActivator(index) {
         sectionSelector = index
+
         que_count = 0
         eachTimeClear()
-        showQuetions(que_count)
+        sectionButtonClassChange()
+        showQuestions(que_count)
         showButtons(sectionSelector)
     }
 
@@ -208,7 +220,8 @@ $(document).ready(function () {
         }
         que_count = 0
         eachTimeClear()
-        showQuetions(que_count)
+        sectionButtonClassChange()
+        showQuestions(que_count)
         showButtons(sectionSelector)
     }
 
@@ -216,7 +229,7 @@ $(document).ready(function () {
         sectionSelector = 0
         que_count = 0
         sectionButtonCreater()
-        showQuetions(que_count)
+        showQuestions(que_count)
         showButtons(sectionSelector)
         mainTimerStart()
     }
@@ -276,8 +289,7 @@ $(document).ready(function () {
         let min = 0
         let sec = 0
 
-        let timeSpent =
-            data.examData[sectionSelector].questions[index].timeSpent
+        let timeSpent = data.examData[sectionSelector].questions[index].timeSpent
 
         min = timeSpent.min
         sec = timeSpent.sec
@@ -329,10 +341,8 @@ $(document).ready(function () {
         finalResult()
     }
 
-    function showQuetions(index) {
+    function showQuestions(index) {
         let questionData = data.examData[sectionSelector].questions[index]
-
-        eachQuestionTime(index)
 
         questionNumberShow.innerText = questionData.numb
 
@@ -371,13 +381,14 @@ $(document).ready(function () {
         </div>`
 
         data.examData[sectionSelector].questions[index].optionSelectedClass =
-            data.examData[sectionSelector].questions[index]
-                .optionSelectedClass === ""
+            data.examData[sectionSelector].questions[index].optionSelectedClass === ""
                 ? "no-not-answered"
-                : data.examData[sectionSelector].questions[index]
-                      .optionSelectedClass
+                : data.examData[sectionSelector].questions[index].optionSelectedClass
 
         questionDisplayArea.innerHTML = questionHTML
+
+        eachQuestionTime(index)
+        questionsOverview()
     }
 
     function showButtons(index) {
@@ -385,9 +396,11 @@ $(document).ready(function () {
         let questionButton = ""
         for (let i = 0; i < questionData.length; i++) {
             questionButton +=
-                '<button class="' +
+                '<button class="question-button ' +
                 questionData[i].optionSelectedClass +
-                '" disabled>' +
+                '" data-index= "' +
+                i +
+                '">' +
                 questionData[i].numb +
                 "</button>"
         }
@@ -401,6 +414,82 @@ $(document).ready(function () {
 
         questionButtonsShow.innerHTML = questionButton
         activeTestName.innerText = data.examData[index].section
+
+        document.getElementsByClassName("question-button")[que_count].classList.add("active-button")
+
+        $(".question-button").on("click", function () {
+            que_count = parseInt($(this).attr("data-index"))
+
+            //console.log($(this).attr("class"))
+
+            eachTimeClear()
+
+            /* Resetting classname for active class */
+            let allQuestionButtons = document.getElementsByClassName("question-button")
+            for (let i = 0; i < allQuestionButtons.length; i++) {
+                if (allQuestionButtons[i].classList.contains("active-button")) {
+                    allQuestionButtons[i].classList.remove("active-button")
+                }
+            }
+            allQuestionButtons[que_count].classList.add("active-button")
+
+            data.examData[sectionSelector].questions[que_count].optionSelectedClass =
+                data.examData[sectionSelector].questions[que_count].optionSelectedClass === ""
+                    ? "no-not-answered"
+                    : data.examData[sectionSelector].questions[que_count].optionSelectedClass
+
+            $(this).addClass(
+                data.examData[sectionSelector].questions[que_count].optionSelectedClass
+            )
+
+            showQuestions(que_count)
+        })
+    }
+
+    /* SideBar Question Counts Shower */
+
+    function questionsOverview() {
+        let countAnswered = 0
+        let countMarked = 0
+        let countNotVisited = 0
+        let countMarkedAnswered = 0
+        let countNotAnswered = 0
+
+        let computeData = data.examData[sectionSelector]
+
+        countNotVisited = computeData.questions.length
+
+        computeData.questions.forEach((element) => {
+            if (element.optionSelectedClass == "no-answered") {
+                countAnswered += 1
+            }
+
+            if (element.optionSelectedClass == "no-marked") {
+                countMarked += 1
+            }
+
+            if (element.optionSelectedClass != "") {
+                countNotVisited -= 1
+            }
+
+            if (element.optionSelectedClass == "no-marked-answered") {
+                countMarkedAnswered += 1
+            }
+
+            if (element.optionSelectedClass == "no-not-answered") {
+                countNotAnswered += 1
+            }
+        })
+
+        if (countNotVisited == -1) {
+            countNotVisited = 0
+        }
+
+        totalCountAnswered.innerText = countAnswered
+        totalCountMarked.innerText = countMarked
+        totalCountNotVisited.innerText = countNotVisited
+        totalCountMarkedAnswered.innerText = countMarkedAnswered
+        totalCountNotAnswered.innerText = countNotAnswered
     }
 
     function finalResult() {
@@ -421,15 +510,12 @@ $(document).ready(function () {
             for (let j = 0; j < questions.length; j++) {
                 if (questions[j].optionSelectedClass == "no-answered") {
                     sno++
-                    formatMaker +=
-                        `<div class='my-2'>${sno}. ` + questions[j].question
+                    formatMaker += `<div class='my-2'>${sno}. ` + questions[j].question
                     formatMaker += "<br />"
 
                     if (
                         questions[j].answer ==
-                        questions[j].options[
-                            parseInt(questions[j].optionSelected)
-                        ]
+                        questions[j].options[parseInt(questions[j].optionSelected)]
                     ) {
                         totalScore = totalScore + positive
                         totalCorrectAnswer += 1

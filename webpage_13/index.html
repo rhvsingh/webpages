@@ -38,7 +38,7 @@
             <div class="col-10 px-0 d-flex flex-column active-sidebar" id="main-section">
                 <div class="bg-secondary-subtle px-2 py-1"><span class="text-uppercase">Sections</span> |
                     <div class="d-inline-block ms-5" id="section-switcher-buttons">
-                        <!-- <button class="test btn btn-sm bg-primary rounded-1 text-white">Test</button> -->
+                        <!-- <button class="section-activator-button btn btn-sm bg-primary rounded-1 text-white">Test</button> -->
                     </div>
                 </div>
                 <!-- Question Number Display -->
@@ -119,11 +119,12 @@
                     <i class="fa fa-user bg-info rounded-5 text-white" style="padding:0.4rem 0.5rem;"></i> Name
                 </div>
                 <div class="d-flex flex-wrap px-3 py-3 number-details border border-start-0 border-end-0">
-                    <div><span class="no-answered">0</span>Answered</div>
-                    <div><span class="no-marked">0</span>Marked</div>
-                    <div><span class="no-not-visited">0</span>Not Visited</div>
-                    <div><span class="no-marked-answered">0</span>Marked and answered</div>
-                    <div><span class="no-not-answered">0</span>Not Answered</div>
+                    <div><span class="no-answered" id="total-count-answered">0</span>Answered</div>
+                    <div><span class="no-marked" id="total-count-marked">0</span>Marked</div>
+                    <div><span class="no-not-visited" id="total-count-not-visited">0</span>Not Visited</div>
+                    <div><span class="no-marked-answered" id="total-count-marked-answered">0</span>Marked and answered
+                    </div>
+                    <div><span class="no-not-answered" id="total-count-not-answered">0</span>Not Answered</div>
                 </div>
                 <!-- Number and Button Section -->
                 <div>
