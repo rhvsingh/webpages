@@ -10,8 +10,9 @@
     padding-block: 0.25rem;
 }
 
-#main-section.active-sidebar {
+/* #main-section.active-sidebar {
 }
+ */
 
 #section-switcher-buttons button {
     max-width: 200px;
@@ -31,8 +32,9 @@
     padding-block: 0.05rem;
 }
 
-#sidebar.active-sidebar {
+/* #sidebar.active-sidebar {
 }
+ */
 
 .sidebar-toggler {
     position: absolute;

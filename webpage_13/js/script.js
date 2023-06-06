@@ -294,6 +294,18 @@ $(document).ready(function () {
         min = timeSpent.min
         sec = timeSpent.sec
 
+        if (sec <= 9) {
+            eachQuestionSec.innerText = "0" + sec
+        } else {
+            eachQuestionSec.innerText = sec
+        }
+
+        if (min <= 9) {
+            eachQuestionMin.innerText = "0" + min
+        } else {
+            eachQuestionMin.innerText = min
+        }
+
         eachTimeCounter = setInterval(startTimer, 1000)
 
         /* buttonStart.onclick = function () {
