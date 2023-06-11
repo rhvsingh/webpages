@@ -28,14 +28,16 @@
                 <span class="bg-secondary text-white px-1" id="sec-left">00</span>
             </div>
             <div class="d-flex justify-content-between">
-                <button class="btn btn-sm border border-info text-info rounded-1 mx-2">Switch Full Screen</button>
+                <button class="btn btn-sm border border-info text-info rounded-1 mx-2" id="fullscreen-button"
+                    data-toggle="true">Switch
+                    Full Screen</button>
                 <button class="btn btn-sm border border-info text-info rounded-1 mx-2">Pause</button>
             </div>
         </div>
     </nav>
     <section class="container-fluid custom-height d-flex flex-column">
-        <div class="row flex-grow-1" style="position: relative;">
-            <div class="col-10 px-0 d-flex flex-column active-sidebar" id="main-section">
+        <div class="row flex-grow-1 main-container">
+            <div class="col-12 col-md-10 px-0 d-flex flex-column" id="main-section">
                 <div class="bg-secondary-subtle px-2 py-1"><span class="text-uppercase">Sections</span> |
                     <div class="d-inline-block ms-5" id="section-switcher-buttons">
                         <!-- <button class="section-activator-button btn btn-sm bg-primary rounded-1 text-white">Test</button> -->
@@ -50,13 +52,13 @@
                         <div class="marking-number">
                             Marks
                             <br />
-                            <span class="bg-success text-white px-2 rounded-3" id="positive-marking">+2</span>
-                            <span class="bg-danger text-white px-2 rounded-3" id="negative-marking">-0.5</span>
+                            <span class="bg-success text-white px-2 rounded-3" id="positive-marking"></span>
+                            <span class="bg-danger text-white px-2 rounded-3" id="negative-marking"></span>
                         </div>
                         <div>
                             Time
                             <br />
-                            <span id="each-question-min">00</span> : <span id="each-question-sec">00</span>
+                            <span id="each-question-min"></span> : <span id="each-question-sec"></span>
 
                         </div>
                         <!-- <div>
@@ -99,24 +101,27 @@
                 </div>
                 <div
                     class="mt-auto px-2 py-2 d-flex justify-content-between flex-wrap gap-2 bg-secondary-subtle border-top">
-                    <div>
-                        <button class="btn btn-sm border-info-subtle bg-info-subtle rounded-1"
+                    <div class="d-flex flex-wrap justify-content-center gap-2 flex-grow-1 flex-sm-grow-0">
+                        <button class="btn btn-sm border-info-subtle bg-info-subtle rounded-1 flex-grow-1"
                             id="mark-review-button">Mark for Review &
                             Next</button>
-                        <button class="btn btn-sm border-info-subtle bg-info-subtle rounded-1"
+                        <button class="btn btn-sm border-info-subtle bg-info-subtle rounded-1 flex-grow-1"
                             id="clear-response-button">Clear Response</button>
                     </div>
-                    <div>
-                        <button class="btn btn-sm bg-info text-white rounded-1" id="save-next-button">Save &
+                    <div class="d-flex justify-content-center flex-grow-1 flex-sm-grow-0">
+                        <button class="btn btn-sm bg-info text-white rounded-1 flex-grow-1" id="save-next-button">Save &
                             Next</button>
                     </div>
                 </div>
             </div>
-            <div class="col-2 px-0 d-flex flex-column active-sidebar" id="sidebar"
+            <div class="col-0 col-md-2 px-0 d-flex flex-column" id="sidebar"
                 style="position:relative;background-color: #d7edf6;">
-                <button class="sidebar-toggler" onclick="sidebarToggler()"><i class="fa fa-angle-right"></i></button>
+                <button class="sidebar-toggler" onclick="sidebarToggler()"><i
+                        class="fa fa-angle-right desktop-icon"></i></button>
                 <div class="px-3 py-2">
                     <i class="fa fa-user bg-info rounded-5 text-white" style="padding:0.4rem 0.5rem;"></i> Name
+                    <button class="sidebar-mobile-toggler" onclick="sidebarToggler()"><i
+                            class="fa fa-times"></i></button>
                 </div>
                 <div class="d-flex flex-wrap px-3 py-3 number-details border border-start-0 border-end-0">
                     <div><span class="no-answered" id="total-count-answered">0</span>Answered</div>
@@ -126,7 +131,7 @@
                     </div>
                     <div><span class="no-not-answered" id="total-count-not-answered">0</span>Not Answered</div>
                 </div>
-                <!-- Number and Button Section -->
+
                 <div>
                     <div class="px-2" style="background-color: #afdaec;font-size: 0.85rem;">
                         <span class="text-uppercase fw-bold">Section :</span> <span id="active-test-name">Active

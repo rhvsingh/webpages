@@ -1,5 +1,5 @@
 .custom-height {
-    min-height: calc(100vh - 2.97rem);
+    min-height: calc(100vh - 3rem);
 }
 
 .question-display-area > ol {
@@ -10,9 +10,11 @@
     padding-block: 0.25rem;
 }
 
-/* #main-section.active-sidebar {
+.main-container {
+    position: relative;
+    flex-wrap: nowrap;
+    overflow: hidden;
 }
- */
 
 #section-switcher-buttons button {
     max-width: 200px;
@@ -32,9 +34,13 @@
     padding-block: 0.05rem;
 }
 
-/* #sidebar.active-sidebar {
+#sidebar {
+    transition: 0.5s ease-in-out;
 }
- */
+
+.sidebar-mobile-toggler {
+    display: none;
+}
 
 .sidebar-toggler {
     position: absolute;
@@ -45,7 +51,7 @@
     height: 50px;
     width: 15px;
     text-align: center;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     color: #fff;
     background-color: #252525;
     cursor: pointer;
@@ -125,4 +131,26 @@
 .question-buttons button:where(.no-answered, .no-marked, .no-marked-answered, .no-not-answered) {
     color: #fff;
     border: 0;
+}
+
+@media screen and (max-width: 768px) {
+    #sidebar {
+        position: absolute !important;
+        inset: 0;
+        transform: translateX(100%);
+    }
+
+    #sidebar.active-sidebar {
+        transform: translateX(0);
+    }
+
+    .sidebar-mobile-toggler {
+        display: block;
+        float: right;
+        outline: none;
+        border: 2px solid #151515;
+        border-radius: 3px;
+        width: 30px;
+        background-color: #fff;
+    }
 }

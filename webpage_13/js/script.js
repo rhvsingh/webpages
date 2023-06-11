@@ -2,7 +2,9 @@ const mainSection = document.getElementById("main-section")
 const sidebar = document.getElementById("sidebar")
 
 function sidebarToggler() {
+    mainSection.classList.toggle("col-md-12")
     mainSection.classList.toggle("active-sidebar")
+    sidebar.classList.toggle("col-md-0")
     sidebar.classList.toggle("active-sidebar")
 }
 
@@ -57,6 +59,41 @@ $(document).ready(function () {
     positiveMark.innerText = "+" + data.positiveMark
     negativeMark.innerText = "-" + data.negativeMark
     examRunner()
+
+    function enterFullScreen(element) {
+        if (element.requestFullscreen) {
+            element.requestFullscreen()
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen() // Firefox
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen() // Safari
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen() // IE/Edge
+        }
+    }
+
+    function exitFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen()
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen()
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen()
+        }
+    }
+
+    // FullScreen Button
+    $("#fullscreen-button").on("click", function () {
+        if ($(this).attr("data-toggle") == "true") {
+            enterFullScreen(document.documentElement)
+            $(this).text("Exit Full Screen")
+            $(this).attr("data-toggle", "false")
+        } else {
+            exitFullscreen()
+            $(this).text("Switch Full Screen")
+            $(this).attr("data-toggle", "true")
+        }
+    })
 
     // To activate section when clicked on section button
     $(".section-activator-button").on("click", function (e) {
