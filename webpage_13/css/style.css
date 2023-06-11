@@ -1,5 +1,9 @@
 .custom-height {
-    min-height: calc(100vh - 3rem);
+    min-height: calc(100vh - 3.5rem);
+}
+
+.section-activator-button {
+    margin-block: 0.25rem;
 }
 
 .question-display-area > ol {
