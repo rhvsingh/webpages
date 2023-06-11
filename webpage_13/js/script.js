@@ -552,16 +552,81 @@ $(document).ready(function () {
 
         for (let i = 0; i < data.examData.length; i++) {
             let questions = data.examData[i].questions
-            formatMaker += "<div> Section: " + data.examData[i].section
-            formatMaker += "<br />"
+            formatMaker +=
+                "<div><span class='fw-bold fs-4'>Section: " +
+                data.examData[i].section +
+                "</span><br />"
+
+            let countAnswered = 0
+            let countMarked = 0
+            let countNotVisited = 0
+            let countMarkedAnswered = 0
+            let countNotAnswered = 0
+
+            let computeData = data.examData[i]
+
+            countNotVisited = computeData.questions.length
+
+            computeData.questions.forEach((element) => {
+                if (element.optionSelectedClass == "no-answered") {
+                    countAnswered += 1
+                }
+
+                if (element.optionSelectedClass == "no-marked") {
+                    countMarked += 1
+                }
+
+                if (element.optionSelectedClass != "") {
+                    countNotVisited -= 1
+                }
+
+                if (element.optionSelectedClass == "no-marked-answered") {
+                    countMarkedAnswered += 1
+                }
+
+                if (element.optionSelectedClass == "no-not-answered") {
+                    countNotAnswered += 1
+                }
+            })
+
+            if (countNotVisited == -1) {
+                countNotVisited = 0
+            }
+
+            formatMaker +=
+                "<span class='result-total-counts-show'>Total Answered: " +
+                countAnswered +
+                "</span>"
+            formatMaker +=
+                "<span class='result-total-counts-show'>Total Marked for Review: " +
+                countMarked +
+                "</span>"
+            formatMaker +=
+                "<span class='result-total-counts-show'>Total Marked and Answered for Review: " +
+                countMarkedAnswered +
+                "</span>"
+            formatMaker +=
+                "<span class='result-total-counts-show'>Total Questions not visited: " +
+                countNotVisited +
+                "</span>"
+            formatMaker +=
+                "<span class='result-total-counts-show'>Total Questions not answered: " +
+                countNotAnswered +
+                "</span>"
+
+            formatMaker += "<div class='question-answer-show'>"
 
             let sno = 0
             for (let j = 0; j < questions.length; j++) {
                 if (questions[j].optionSelectedClass == "no-answered") {
                     sno++
-                    formatMaker += `<div class='my-2'>${sno}. ` + questions[j].question
+                    formatMaker +=
+                        `<div class='my-2'><span class='fst-italic fw-bold '>Q${sno}. ` +
+                        questions[j].question +
+                        "</span>"
                     formatMaker += "<br />"
-
+                    formatMaker +=
+                        "Selected: " + questions[j].options[parseInt(questions[j].optionSelected)]
                     if (
                         questions[j].answer ==
                         questions[j].options[parseInt(questions[j].optionSelected)]
@@ -569,16 +634,16 @@ $(document).ready(function () {
                         totalScore = totalScore + positive
                         totalCorrectAnswer += 1
 
-                        formatMaker += "Selected answer correct"
+                        formatMaker += "(Correct Answer)"
                     } else {
                         totalScore = totalScore - negative
                         totalWrongAnswer += 1
 
-                        formatMaker += "Selected answer wrong"
+                        formatMaker += "(Wrong Answer)"
                     }
 
                     formatMaker += "<br />"
-                    formatMaker += `Time taken: ${
+                    formatMaker += `Time Taken: ${
                         questions[j].timeSpent.min > 9
                             ? questions[j].timeSpent.min
                             : "0" + questions[j].timeSpent.min
@@ -593,17 +658,19 @@ $(document).ready(function () {
                 }
             }
 
+            formatMaker += "</div>"
+
             if (sno == 0) {
-                formatMaker += "No answer selected"
+                formatMaker += "<br />No answer selected"
             }
 
             formatMaker += "</div>"
         }
 
         resultShow.innerHTML = `
-            <p>Total Score: ${totalScore}</p>
-            <p>Total Correct Answers: ${totalCorrectAnswer}</p>
-            <p>Total Wrong Answers: ${totalWrongAnswer}</p>
+            <p><span class='fw-bold'>Total Score:</span> ${totalScore}</p>
+            <p><span class='fw-bold'>Total Correct Answers:</span> ${totalCorrectAnswer}</p>
+            <p><span class='fw-bold'>Total Wrong Answers:</span> ${totalWrongAnswer}</p>
             <hr>
             `
 
