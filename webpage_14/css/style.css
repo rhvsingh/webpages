@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+#canvas_element {
+    border-radius: 5px;
+    border: 1px solid #000000;
+}
