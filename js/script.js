@@ -1,12 +1,32 @@
-const content = document.getElementById('content')
-const paginationCount = document.getElementById('pagination-count')
-const prevButton = document.getElementById('prev-button')
-const nextButton = document.getElementById('next-button')
+const content = document.getElementById("content")
+const paginationCount = document.getElementById("pagination-count")
+const prevButton = document.getElementById("prev-button")
+const nextButton = document.getElementById("next-button")
+const gridNum = document.getElementById("grid-number")
 
 var clickChange = 0,
-    set, currentPage = 1
+    set,
+    currentPage = 1
 
 let counter = 9
+
+if (localStorage.getItem("gridNum") === null) {
+    counter = 9
+    gridNum.value = counter
+    localStorage.setItem("gridNum", counter)
+} else if (localStorage.getItem("gridNum")) {
+    let numb = parseInt(localStorage.getItem("gridNum"))
+    gridNum.value = numb
+    counter = numb
+}
+
+gridNum.onchange = (e) => {
+    let numb = parseInt(e.target.value)
+    localStorage.setItem("gridNum", numb)
+    counter = numb
+    window.location.reload()
+}
+
 let start = 0
 let end = counter
 let numCheck = true
@@ -14,12 +34,9 @@ let numCheck = true
 let completePage
 
 function dataInserter(data) {
-
     let convertedData
-    if (data.desc == '') {
-
-        convertedData =
-            `<article>
+    if (data.desc == "") {
+        convertedData = `<article>
                 <a href="${data.link}/">
                     <div class="image-container">
                         <img src="images/${data.imageLink}" alt="${data.altImage}" />
@@ -31,8 +48,7 @@ function dataInserter(data) {
                 </a>
             </article>`
     } else {
-        convertedData = 
-        `<article>
+        convertedData = `<article>
             <a href="${data.link}/">
                 <div class="image-container">
                     <img src="images/${data.imageLink}" alt="${data.altImage}" />
@@ -54,19 +70,19 @@ function contentLoader(start, end, pageData) {
 }
 
 function changeView(view) {
-    let postButton = document.getElementsByClassName('post-button');
+    let postButton = document.getElementsByClassName("post-button")
     for (let i = 0; i < postButton.length; i++) {
-        if (postButton[i].getAttribute('data-id') == view) {
-            postButton[i].classList.add('active')
+        if (postButton[i].getAttribute("data-id") == view) {
+            postButton[i].classList.add("active")
         } else {
-            postButton[i].classList.remove('active')
+            postButton[i].classList.remove("active")
         }
     }
     console.log(view)
     currentPage = view
     end = view * counter
     start = end - counter
-    content.innerHTML = ''
+    content.innerHTML = ""
     if (clickChange == 1) {
         contentLoader(start, end, set)
     } else {
@@ -74,34 +90,33 @@ function changeView(view) {
     }
 
     if (currentPage == 1) {
-        console.log('Do nothing')
-        prevButton.style.visibility = 'hidden'
+        console.log("Do nothing")
+        prevButton.style.visibility = "hidden"
         prevButton.style.opacity = 0
     } else {
-        prevButton.style.visibility = 'visible'
+        prevButton.style.visibility = "visible"
         prevButton.style.opacity = 1
     }
 
-    console.log(currentPage + ' ' + completePage)
+    console.log(currentPage + " " + completePage)
 
     if (!numCheck) {
         if (currentPage > completePage) {
-            nextButton.style.visibility = 'hidden'
+            nextButton.style.visibility = "hidden"
             nextButton.style.opacity = 0
         } else {
-            console.log('Do nothing')
-            nextButton.style.visibility = 'visible'
+            console.log("Do nothing")
+            nextButton.style.visibility = "visible"
             nextButton.style.opacity = 1
         }
     } else {
         if (currentPage < completePage) {
-            nextButton.style.visibility = 'visible'
+            nextButton.style.visibility = "visible"
             nextButton.style.opacity = 1
-
         } else {
-            console.log('Do nothing')
+            console.log("Do nothing")
 
-            nextButton.style.visibility = 'hidden'
+            nextButton.style.visibility = "hidden"
             nextButton.style.opacity = 0
         }
     }
@@ -109,22 +124,22 @@ function changeView(view) {
 
 function pagPrevButton() {
     if (currentPage == 1) {
-        console.log('Do nothing')
+        console.log("Do nothing")
     } else {
         changeView(currentPage - 1)
-        console.log('Prev buttonClick')
+        console.log("Prev buttonClick")
     }
 }
 
 function pagNextButton() {
-    prevButton.style.visibility = 'visible'
+    prevButton.style.visibility = "visible"
     prevButton.style.opacity = 1
     if (currentPage <= completePage) {
-        console.log('Next buttonClick')
+        console.log("Next buttonClick")
         changeView(currentPage + 1)
     } else {
-        console.log('Do nothing')
-        nextButton.style.visibility = 'hidden'
+        console.log("Do nothing")
+        nextButton.style.visibility = "hidden"
         nextButton.style.opacity = 0
     }
 }
@@ -133,28 +148,28 @@ contentLoader(start, end, pageData)
 
 //pageData.forEach(dataInserter)
 
-const sort = document.getElementById('sort')
+const sort = document.getElementById("sort")
 var dataChange = pageData
 
 sort.onchange = function (e) {
     switch (e.target.value) {
-        case 'recent':
+        case "recent":
             clickChange = 0
-            content.innerHTML = ''
+            content.innerHTML = ""
             /* dataChange.forEach(dataInserter) */
             contentLoader(start, end, dataChange)
-            break;
-        case 'old':
+            break
+        case "old":
             set = dataChange.slice().sort((a, b) => {
                 let date1 = new Date(a.date)
                 let date2 = new Date(b.date)
                 return date1 - date2
             })
             clickChange = 1
-            content.innerHTML = ''
+            content.innerHTML = ""
             /* set.forEach(dataInserter) */
             contentLoader(start, end, set)
-            break;
+            break
     }
 }
 
@@ -162,7 +177,7 @@ if (pageData.length / counter && pageData.length % counter == 0) {
     completePage = pageData.length / counter
     numCheck = true
     if (completePage == 1) {
-        nextButton.style.visibility = 'hidden'
+        nextButton.style.visibility = "hidden"
         nextButton.style.opacity = 0
     }
     for (let i = 1; i <= completePage; i++) {
@@ -173,10 +188,10 @@ if (pageData.length / counter && pageData.length % counter == 0) {
         paginationCount.innerHTML += `<span class='post-button' onclick='changeView(${i})' data-id='${i}'>${i}</span>`
     }
 } else if (pageData.length % counter != 0) {
-    completePage = (Math.floor(pageData.length / counter))
+    completePage = Math.floor(pageData.length / counter)
     numCheck = false
-    if ((1 + completePage) == 1) {
-        nextButton.style.visibility = 'hidden'
+    if (1 + completePage == 1) {
+        nextButton.style.visibility = "hidden"
         nextButton.style.opacity = 0
     }
     for (let i = 1; i <= completePage; i++) {
@@ -186,32 +201,32 @@ if (pageData.length / counter && pageData.length % counter == 0) {
         }
         paginationCount.innerHTML += `<span class='post-button' onclick='changeView(${i})' data-id='${i}'>${i}</span>`
     }
-    paginationCount.innerHTML += `<span class='post-button' onclick='changeView(${completePage + 1})' data-id='${completePage + 1}'>${completePage + 1}</span>`
+    paginationCount.innerHTML += `<span class='post-button' onclick='changeView(${
+        completePage + 1
+    })' data-id='${completePage + 1}'>${completePage + 1}</span>`
 }
 
-prevButton.style.visibility = 'hidden'
+prevButton.style.visibility = "hidden"
 prevButton.style.opacity = 0
-
-
 
 /* Drop-down */
 
-const dropDown = document.getElementById('select-drop')
-const dropOptions = document.getElementsByClassName('drop-options')
-const showSelectedDrop = document.getElementById('show-selected-drop')
-const dropToggle = document.getElementsByClassName('drop-toggle')[0]
+const dropDown = document.getElementById("select-drop")
+const dropOptions = document.getElementsByClassName("drop-options")
+const showSelectedDrop = document.getElementById("show-selected-drop")
+const dropToggle = document.getElementsByClassName("drop-toggle")[0]
 
 let onChangeChecker = 0
 
-dropOptions[0].classList.add('active-drop')
+dropOptions[0].classList.add("active-drop")
 showSelectedDrop.innerHTML = dropOptions[0].innerHTML
-showSelectedDrop.setAttribute('value', dropOptions[0].getAttribute('value'))
+showSelectedDrop.setAttribute("value", dropOptions[0].getAttribute("value"))
 
 dropDown.onclick = (e) => {
-    if (dropDown.classList.toggle('active-drop')) {
-        console.log('add')
+    if (dropDown.classList.toggle("active-drop")) {
+        console.log("add")
     } else {
-        console.log('remove')
+        console.log("remove")
     }
     identify(e)
 }
@@ -227,37 +242,36 @@ function identify(e) {
                 continue
             } else {
                 onChangeChecker = i
-                console.log(i);
+                console.log(i)
                 showSelectedDrop.innerHTML = dropOptions[i].innerHTML
-                showSelectedDrop.setAttribute('value', dropOptions[i].getAttribute('value'))
-                switch (e.target.getAttribute('value')) {
-                    case 'recent':
+                showSelectedDrop.setAttribute("value", dropOptions[i].getAttribute("value"))
+                switch (e.target.getAttribute("value")) {
+                    case "recent":
                         clickChange = 0
-                        content.innerHTML = ''
+                        content.innerHTML = ""
                         /* dataChange.forEach(dataInserter) */
                         contentLoader(start, end, dataChange)
-                        break;
-                    case 'old':
+                        break
+                    case "old":
                         set = dataChange.slice().sort((a, b) => {
                             let date1 = new Date(a.date)
                             let date2 = new Date(b.date)
                             return date1 - date2
                         })
                         clickChange = 1
-                        content.innerHTML = ''
+                        content.innerHTML = ""
                         /* set.forEach(dataInserter) */
                         contentLoader(start, end, set)
-                        break;
+                        break
                 }
             }
-
         }
     }
 }
 
-dropToggle.addEventListener('mouseover', function (e) {
+dropToggle.addEventListener("mouseover", function (e) {
     for (let i = 0; i < dropOptions.length; i++) {
-        dropOptions[i].classList.remove('active-drop')
+        dropOptions[i].classList.remove("active-drop")
     }
-    e.target.classList.add('active-drop')
+    e.target.classList.add("active-drop")
 })
