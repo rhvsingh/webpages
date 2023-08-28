@@ -8,29 +8,33 @@ let offsetY = canvasElement.offsetTop
 let scrollX = canvasElement.scrollLeft
 let scrollY = canvasElement.scrollTop
 
-function circleCreater(yDistance, colorIndex) {
+function circleCreater(yDistance, colorIndex, changeColor = 0) {
     cntx.beginPath()
     cntx.arc(100, yDistance, 50, 0, 2 * Math.PI)
-    cntx.fillStyle = colorArray[colorIndex]
+    if (changeColor == 1) {
+        cntx.fillStyle = "#2f3030"
+    } else {
+        cntx.fillStyle = colorArray[colorIndex]
+    }
     cntx.fill()
     cntx.lineWidth = "3"
     cntx.stroke()
 }
 
-function arrowCreater(x) {
+function arrowCreater(x, finalValue = 400) {
     cntx.beginPath()
 
-    cntx.moveTo(400, x)
+    cntx.moveTo(finalValue, x)
     x -= 25
-    cntx.lineTo(425, x)
-    cntx.lineTo(425, x + 15.5)
-    cntx.lineTo(500, x + 15.5)
+    cntx.lineTo(finalValue + 25, x)
+    cntx.lineTo(finalValue + 25, x + 15.5)
+    cntx.lineTo(finalValue + 100, x + 15.5)
     x += 15
-    cntx.lineTo(500, x + 15.5)
-    cntx.lineTo(425, x + 15.5)
+    cntx.lineTo(finalValue + 100, x + 15.5)
+    cntx.lineTo(finalValue + 25, x + 15.5)
     x += 10
-    cntx.lineTo(425, x + 20)
-    cntx.lineTo(400, x)
+    cntx.lineTo(finalValue + 25, x + 20)
+    cntx.lineTo(finalValue, x)
 
     cntx.fillStyle = "black"
     cntx.lineJoin = "melter"
@@ -51,7 +55,7 @@ function createCanvasElement() {
 createCanvasElement()
 
 function resetCanvas() {
-    console.log("resetCanvas")
+    //console.log("resetCanvas")
     cntx.clearRect(0, 0, canvasElement.width, canvasElement.height)
     createCanvasElement()
 }
@@ -71,26 +75,68 @@ function handleMouseDown(e) {
     for (let i = 0; i < 4; i++) {
         circleCreater(initialValue, i)
         if (cntx.isPointInPath(mouseX, mouseY)) {
-            /* alert("Clicked") */
-            arrowMover(initialValue, i)
-            console.log(mouseX, mouseY, i, initialValue)
+            arrowMover(i)
         }
         initialValue += 125
     }
 }
 
-function arrowMover(x, arrowNo) {
-    /* cntx.translate(200, x) */
-    console.log(x, arrowNo)
+function arrowShifter(x, arrowNo, finalValue = 400) {
+    cntx.beginPath()
 
+    cntx.moveTo(finalValue, x)
+    x -= 25
+    cntx.lineTo(finalValue + 25, x)
+    cntx.lineTo(finalValue + 25, x + 15.5)
+    cntx.lineTo(finalValue + 100, x + 15.5)
+    x += 15
+    cntx.lineTo(finalValue + 100, x + 15.5)
+    cntx.lineTo(finalValue + 25, x + 15.5)
+    x += 10
+    cntx.lineTo(finalValue + 25, x + 20)
+    cntx.lineTo(finalValue, x)
+
+    cntx.fillStyle = "black"
+    cntx.lineJoin = "melter"
+    cntx.fill()
+    cntx.stroke()
+
+    if (finalValue > 150) {
+        finalValue -= 1
+        setTimeout(function () {
+            arrowMover(arrowNo, 1)
+            arrowShifter(x, arrowNo, finalValue)
+        }, 5)
+    } else {
+        //change color of the circle
+        let initialValue = 75
+
+        for (let i = 0; i < 4; i++) {
+            if (i == arrowNo) {
+                circleCreater(initialValue, i, 1)
+            } else {
+                circleCreater(initialValue, i)
+            }
+            initialValue += 125
+        }
+    }
+}
+
+function arrowMover(arrowNo, checker = 0) {
     cntx.clearRect(0, 0, canvasElement.width, canvasElement.height)
     let initialValue = 75
 
     for (let i = 0; i < 4; i++) {
         circleCreater(initialValue, i)
+
         if (i != arrowNo) {
             arrowCreater(initialValue)
+        } else {
+            if (checker == 0) {
+                arrowShifter(initialValue, arrowNo)
+            }
         }
+
         initialValue += 125
     }
 }
@@ -98,5 +144,3 @@ function arrowMover(x, arrowNo) {
 canvasElement.addEventListener("mousedown", function (e) {
     handleMouseDown(e)
 })
-
-//To check git sign commit
