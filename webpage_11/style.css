@@ -1,24 +1,24 @@
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 img {
     display: block;
-    max-width: 100%
+    max-width: 100%;
 }
 
 html,
 body {
     margin: 0;
     background-color: #fafafa;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
     display: flex;
     justify-content: center;
     box-shadow: 0px 0px 4px #ccc;
-    position: relative
+    position: relative;
 }
 
 header h1 {
@@ -27,7 +27,7 @@ header h1 {
     color: #a7a7a7;
     font-weight: normal;
     font-style: italic;
-    padding: 0.5rem 0
+    padding: 0.5rem 0;
 }
 
 header .fa {
@@ -35,7 +35,7 @@ header .fa {
     left: 2rem;
     top: 0.25rem;
     font-size: 2rem;
-    color: #707070
+    color: #707070;
 }
 
 .image-selector {
@@ -43,7 +43,7 @@ header .fa {
     border: 1px solid #c0c0c0;
     padding: 1rem 0;
     margin: 1rem;
-    text-align: center
+    text-align: center;
 }
 
 .image-selector h2 {
@@ -52,11 +52,11 @@ header .fa {
     font-weight: 500;
     font-size: 0.9rem;
     margin: 0;
-    margin-bottom: 0.5rem
+    margin-bottom: 0.5rem;
 }
 
-.image-selector>div {
-    margin-top: 1rem
+.image-selector > div {
+    margin-top: 1rem;
 }
 
 .image-label {
@@ -65,11 +65,11 @@ header .fa {
     color: #fff;
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
-    border-radius: 4px
+    border-radius: 4px;
 }
 
 #image {
-    display: none
+    display: none;
 }
 
 #image-modal {
@@ -81,13 +81,12 @@ header .fa {
     transition: 0.3s ease-in-out;
     /* visibility: hidden; */
     /* opacity: 0; */
-    
 }
 
 #image-modal-overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.6)
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .image-show-container {
@@ -95,14 +94,14 @@ header .fa {
     background-color: #fff;
     z-index: 1;
     text-align: center;
-    padding: 0.5rem
+    padding: 0.5rem;
 }
 
-.image-show-container>h3 {
+.image-show-container > h3 {
     margin-top: 2rem;
     color: #a7a7a7;
     font-style: italic;
-    font-weight: 500
+    font-weight: 500;
 }
 
 #modal-closer {
@@ -113,7 +112,7 @@ header .fa {
     background-color: #858585;
     color: #fff;
     padding: 0.25rem 0.45rem;
-    cursor: pointer
+    cursor: pointer;
 }
 
 .image-show-container ul {
@@ -122,7 +121,7 @@ header .fa {
     display: flex;
     justify-content: center;
     align-items: center;
-    list-style: none
+    list-style: none;
 }
 
 .image-show-container ul li {
@@ -132,35 +131,35 @@ header .fa {
     color: #757575;
     padding: 0.25rem;
     border-radius: 8px;
-    margin: 0 0.15rem
+    margin: 0 0.15rem;
 }
 
 .image-show-container ul li:not(:has(img)) {
-    padding: 1rem 0.8rem
+    padding: 1rem 0.8rem;
 }
 
 .image-show-container ul img {
-    max-width: clamp(25px, 5vw, 100px)
+    max-width: clamp(25px, 5vw, 100px);
 }
 
 .modal-radio {
-    display: none
+    display: none;
 }
 
 #image-modal-show {
     margin: 0.25rem;
-    overflow: hidden
+    overflow: hidden;
 }
 
 #image-modal-show img {
-    margin: auto
+    margin: auto;
 }
 
 #image-show {
     padding: 2rem;
     max-width: 500px;
     margin: auto;
-    text-align: center
+    text-align: center;
 }
 
 #image-show:has(img) img {
@@ -172,17 +171,17 @@ header .fa {
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center;
-    mask-position: center
+    mask-position: center;
 }
 
 .image-show-container:has(.modal-radio#modal-image-original:checked) #image-modal-show img {
     width: auto;
     height: auto;
-    transform: scale(1)
+    transform: scale(1);
 }
 
 .image-show-container:has(.modal-radio:checked) #image-modal-show img {
-    transform: scale(1.4 , 1);
+    transform: scale(1, 1);
     /* -webkit-mask-image: url('asset/user_image_frame_1.png');
     mask-image: url('asset/user_image_frame_1.png'); */
     -webkit-mask-size: 100%;
@@ -190,14 +189,14 @@ header .fa {
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center;
-    mask-position: center
+    mask-position: center;
 }
 
 #mycanvas {
     display: block;
     max-width: 500px !important;
     max-height: 500px;
-    margin: auto
+    margin: auto;
 }
 
 .image-show-container:has(.modal-radio#modal-image-original:checked) #mycanvas {
@@ -207,13 +206,13 @@ header .fa {
 }
 
 .image-show-container:has(.modal-radio:checked) #mycanvas {
-    transform: scale(1.4 , 1);
+    transform: scale(1, 1);
     -webkit-mask-size: 100%;
     mask-size: 100%;
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center;
-    mask-position: center
+    mask-position: center;
 }
 
 #image-use-button {
@@ -226,5 +225,5 @@ header .fa {
     padding: 1rem;
     border-radius: 4px;
     background-color: #088178;
-    cursor: pointer
+    cursor: pointer;
 }
