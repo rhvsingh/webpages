@@ -13,8 +13,13 @@ const imageName = [
     "user_image_frame_4.png",
 ]
 
+const imageId = ["image-heart", "image-square", "image-circle", "image-rectangle"]
+
 const canvas = document.getElementById("mycanvas")
 const context = canvas.getContext("2d")
+
+let selectedMask = -1
+let imageLoaded
 
 function modalClose() {
     imageModal.style.visibility = "hidden"
@@ -49,7 +54,8 @@ function imageModalPreviewSetter(index) {
     //context.globalCompositeOperation = 'destination-in';
 }
 
-function effectSelector(id) {
+function effectSelector(id, i) {
+    selectedMask = i
     switch (id) {
         case "modal-image-heart":
             imageModalPreviewSetter(0)
@@ -71,19 +77,19 @@ function effectSelector(id) {
 
 for (let i = 0; i < imageRadio.length; i++) {
     imageRadio[i].onclick = (e) => {
-        effectSelector(e.target.id)
+        effectSelector(e.target.id, i)
     }
 }
 
-function cropImage(imagePath, newX, newY) {
+function cropImage(imagePath) {
     let image = new Image()
     image.src = imagePath
     image.onload = function () {
+        imageLoaded = image
         canvas.width = image.width
         canvas.height = image.height
         //drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
-        console.log(image.width, image.height)
-        context.drawImage(image, newX, newY, image.width, image.height)
+        context.drawImage(image, 0, 0, image.width, image.height)
     }
 }
 
@@ -95,7 +101,7 @@ imageInput.onchange = (e) => {
         () => {
             modalOpen()
             //let imageHTML = `<img src="${fileReader.result}" id="image-modal-preview" alt="Image Changer">`
-            cropImage(fileReader.result, 0, 0)
+            cropImage(fileReader.result)
         },
         false
     )
@@ -108,6 +114,7 @@ imageInput.onchange = (e) => {
 imageUseButton.onclick = function () {
     let index
     let imagePath
+
     let canvasWidth = imageModalShow.offsetWidth
     let canvasHeight = imageModalShow.offsetHeight
     for (let i = 0; i < imageRadio.length; i++) {
@@ -117,12 +124,28 @@ imageUseButton.onclick = function () {
             break
         }
     }
+
+    context.clearRect(0, 0, imageLoaded.width, imageLoaded.height)
+
+    if (selectedMask != -1) {
+        let img = new Image()
+        img.src = document.getElementById(imageId[selectedMask - 1]).src
+        img.setAttribute("width", imageLoaded.width)
+        img.setAttribute("height", imageLoaded.height)
+
+        img.onload = function () {
+            context.drawImage(img, 0, 0, imageLoaded.width, imageLoaded.height)
+            context.globalCompositeOperation = "source-in"
+            context.drawImage(imageLoaded, 0, 0, imageLoaded.width, imageLoaded.height)
+        }
+    }
+
     if (index) {
         imagePath = `-webkit-mask-image: url('asset/${imageName[index - 1]}');`
     } else {
         imagePath = `-webkit-mask-image: none;`
     }
-    let imageHTML = `<img src="${canvas.toDataURL()}" style="${imagePath}" alt="Image Changer">`
+    let imageHTML = `<img src="${canvas.toDataURL()}"  alt="Image Changer">`
     imageShow.innerHTML = imageHTML
 
     modalClose()
@@ -132,4 +155,5 @@ imageUseButton.onclick = function () {
     canvas.style.maskImage = "none"
     imageInput.type = "text"
     imageInput.type = "file"
+    selectedMask = -1
 }

@@ -115,6 +115,10 @@ aside select,
     outline: none;
 }
 
+#grid-number {
+    width: 60px;
+}
+
 aside select option {
     color: #000;
 }

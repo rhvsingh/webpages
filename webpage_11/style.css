@@ -140,6 +140,7 @@ header .fa {
 
 .image-show-container ul img {
     max-width: clamp(25px, 5vw, 100px);
+    filter: invert(1);
 }
 
 .modal-radio {
