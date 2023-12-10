@@ -12,7 +12,7 @@
         }
 
         img {
-            max-width: 100%;
+            width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
@@ -21,131 +21,231 @@
         .container {
             max-width: 1600px;
             margin: 0 auto;
+            margin-bottom: 2rem;
             padding: 0.5rem;
         }
 
-        .image-box {
-            padding: 0.5rem;
-            width: 100%;
-            height: 95vh;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            gap: 1rem;
-            border-radius: 10px;
-            overflow: hidden;
-            overflow-x: auto;
-            background-color: #ddd;
-        }
-
-        .image-box::-webkit-scrollbar {
-            height: 12px;
-        }
-
-        .image-box::-webkit-scrollbar-thumb {
-            background-color: rgb(95, 5, 117);
-            border-radius: 20px;
-        }
-
-        .image-box::-webkit-scrollbar-track {
-            background-color: #ddd;
-            border-radius: 20px;
-            margin-inline: 2px;
-        }
-
-        .image-box>div {
-            flex-grow: 1;
-            max-width: 250px;
-            background-color: black;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .image-box>div,
-        .image-box>div img {
-            transition: all 0.3s ease-in-out;
-        }
-
-        .image-box:hover>div {
-            filter: brightness(30%) blur(5px);
-        }
-
-        .image-box:hover>div:hover {
-            filter: brightness(100%);
-        }
-
-        .image-box:hover>div:hover img {
-            transform: scale(1.3);
+        .title {
+            text-align: center;
+            font-weight: 600;
+            font-size: 2rem;
+            font-family: system-ui, sans-serif;
+            margin-bottom: 0.25rem;
         }
     </style>
+
+    <link rel="stylesheet" href="style-1.css">
+    <link rel="stylesheet" href="style-2.css">
+    <link rel="stylesheet" href="style-3.css">
 </head>
 
 <body>
 
     <div class="container">
-        <div class="image-box">
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/30/07/51/bridge-8420945_1280.jpg" alt="" srcset="">
+        <div class="title">Responsive Image Grid-1</div>
+        <div class="image-box-1">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/30/07/51/bridge-8420945_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/21/22/04/mountains-8404362_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/21/22/04/mountains-8404362_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/13/01/30/flower-8384359_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/13/01/30/flower-8384359_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/07/29/17/36/fly-8157417_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/07/29/17/36/fly-8157417_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/21/07/02/girl-8402582_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/21/07/02/girl-8402582_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/07/07/13/17/flowers-8112546_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/07/07/13/17/flowers-8112546_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/07/01/05/20/carniolan-honey-bee-8099474_1280.jpg" alt=""
-                    srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/07/01/05/20/carniolan-honey-bee-8099474_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/04/24/07/27/grape-hyacinth-7947416_1280.jpg" alt=""
-                    srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/04/24/07/27/grape-hyacinth-7947416_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/04/22/10/28/sheep-7943526_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/04/22/10/28/sheep-7943526_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/29/14/15/forest-8419725_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/29/14/15/forest-8419725_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/12/04/18/09/icebergs-8430043_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/12/04/18/09/icebergs-8430043_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/26/14/43/girl-8413748_1280.png" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/26/14/43/girl-8413748_1280.png" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/06/01/05/59/oranges-8032713_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/06/01/05/59/oranges-8032713_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/10/02/30/woman-8378634_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/10/02/30/woman-8378634_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/12/16/26/garden-tools-8383397_1280.jpg" alt=""
-                    srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/12/16/26/garden-tools-8383397_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/04/22/10/28/sheep-7943526_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/04/22/10/28/sheep-7943526_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/29/14/15/forest-8419725_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/29/14/15/forest-8419725_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/12/04/18/09/icebergs-8430043_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/12/04/18/09/icebergs-8430043_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/26/14/43/girl-8413748_1280.png" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/26/14/43/girl-8413748_1280.png" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/06/01/05/59/oranges-8032713_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/06/01/05/59/oranges-8032713_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/10/02/30/woman-8378634_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/10/02/30/woman-8378634_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/12/16/26/garden-tools-8383397_1280.jpg" alt=""
-                    srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/12/16/26/garden-tools-8383397_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/30/07/51/bridge-8420945_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/30/07/51/bridge-8420945_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/21/22/04/mountains-8404362_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/21/22/04/mountains-8404362_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/13/01/30/flower-8384359_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/13/01/30/flower-8384359_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/07/29/17/36/fly-8157417_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/07/29/17/36/fly-8157417_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/11/21/07/02/girl-8402582_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/21/07/02/girl-8402582_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/07/07/13/17/flowers-8112546_1280.jpg" alt="" srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/07/07/13/17/flowers-8112546_1280.jpg" alt="">
             </div>
-            <div><img src="https://cdn.pixabay.com/photo/2023/07/01/05/20/carniolan-honey-bee-8099474_1280.jpg" alt=""
-                    srcset="">
+            <div><img src="https://cdn.pixabay.com/photo/2023/07/01/05/20/carniolan-honey-bee-8099474_1280.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="title">Responsive Image Grid-2</div>
+        <div class="image-box-2">
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/30/07/51/bridge-8420945_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/21/22/04/mountains-8404362_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/13/01/30/flower-8384359_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/07/29/17/36/fly-8157417_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/21/07/02/girl-8402582_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/07/07/13/17/flowers-8112546_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/07/01/05/20/carniolan-honey-bee-8099474_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/04/24/07/27/grape-hyacinth-7947416_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/04/22/10/28/sheep-7943526_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/29/14/15/forest-8419725_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/12/04/18/09/icebergs-8430043_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/26/14/43/girl-8413748_1280.png" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/06/01/05/59/oranges-8032713_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/10/02/30/woman-8378634_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/12/16/26/garden-tools-8383397_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/04/22/10/28/sheep-7943526_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/29/14/15/forest-8419725_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/12/04/18/09/icebergs-8430043_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/26/14/43/girl-8413748_1280.png" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/06/01/05/59/oranges-8032713_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/10/02/30/woman-8378634_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/12/16/26/garden-tools-8383397_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/30/07/51/bridge-8420945_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/21/22/04/mountains-8404362_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/13/01/30/flower-8384359_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/07/29/17/36/fly-8157417_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/11/21/07/02/girl-8402582_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/07/07/13/17/flowers-8112546_1280.jpg" alt="">
+            </div>
+            <div><img src="https://cdn.pixabay.com/photo/2023/07/01/05/20/carniolan-honey-bee-8099474_1280.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="title">Responsive Image Grid-3</div>
+        <div class="image-box-3">
+            <div class="column">
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/30/07/51/bridge-8420945_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/21/22/04/mountains-8404362_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/13/01/30/flower-8384359_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/07/29/17/36/fly-8157417_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/21/07/02/girl-8402582_1280.jpg" alt="">
+                </div>
+            </div>
+            <div class="column">
+                <div><img src="https://cdn.pixabay.com/photo/2023/07/07/13/17/flowers-8112546_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/07/01/05/20/carniolan-honey-bee-8099474_1280.jpg"
+                        alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/04/24/07/27/grape-hyacinth-7947416_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/04/22/10/28/sheep-7943526_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/29/14/15/forest-8419725_1280.jpg" alt="">
+                </div>
+            </div>
+            <div class="column">
+                <div><img src="https://cdn.pixabay.com/photo/2023/12/04/18/09/icebergs-8430043_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/26/14/43/girl-8413748_1280.png" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/06/01/05/59/oranges-8032713_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/10/02/30/woman-8378634_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/12/16/26/garden-tools-8383397_1280.jpg" alt="">
+                </div>
+            </div>
+            <div class="column">
+                <div><img src="https://cdn.pixabay.com/photo/2023/04/22/10/28/sheep-7943526_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/29/14/15/forest-8419725_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/12/04/18/09/icebergs-8430043_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/26/14/43/girl-8413748_1280.png" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/06/01/05/59/oranges-8032713_1280.jpg" alt="">
+                </div>
+            </div>
+            <div class="column">
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/10/02/30/woman-8378634_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/12/16/26/garden-tools-8383397_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/30/07/51/bridge-8420945_1280.jpg" alt="">
+                </div>
+            </div>
+            <div class="column">
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/21/22/04/mountains-8404362_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/13/01/30/flower-8384359_1280.jpg" alt="">
+                </div>
+
+                <div><img src="https://cdn.pixabay.com/photo/2023/07/29/17/36/fly-8157417_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/11/21/07/02/girl-8402582_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/07/07/13/17/flowers-8112546_1280.jpg" alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/07/01/05/20/carniolan-honey-bee-8099474_1280.jpg"
+                        alt="">
+                </div>
+                <div><img src="https://cdn.pixabay.com/photo/2023/06/01/05/59/oranges-8032713_1280.jpg" alt="">
+                </div>
             </div>
         </div>
     </div>
